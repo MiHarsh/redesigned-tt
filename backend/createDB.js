@@ -1,18 +1,8 @@
-const express = require("express");
-const path = require("path");
-const cors = require("cors");
-
-const app = express();
-require("dotenv").config();
-
-// Bodyparser middleware
-app.use(express.json());
-app.use(cors());
-
 // database configs
 // Firebase App (the core Firebase SDK) is always required and
 // must be listed before other Firebase SDKs
 var firebase = require("firebase/app");
+require("dotenv").config();
 
 // Add the Firebase products that you want to use
 require("firebase/auth");
@@ -33,26 +23,32 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 var db = firebase.database();
-dbRef = db.ref();
 
-app.set("db", db);
+const courseDetails = require("../public/courseDetails.json");
+const enrolledStudent = require("../public/enrolledStudent.json");
+const facultyDetails = require("../public/facultyDetails.json");
+const studentDetails = require("../public/studentDetails.json");
 
-// use routes
-app.use("/api/status", require("./routes/status"));
-app.use("/api/getFacultyTT", require("./routes/getFacultyTT"));
-
-// serve static assets if we are in production
-if (process.env.NODE_ENV === "production") {
-  // set static folder
-  app.use(express.static("client/build"));
-
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+db.ref("/courseDetails")
+  .set(courseDetails)
+  .then(() => {
+    console.log("course details successfuly uploaded");
   });
-} else {
-  app.use(express.static("public"));
-}
 
-const port = process.env.BACKEND_NODE_PORT || 5000;
+db.ref("/enrolledStudent")
+  .set(enrolledStudent)
+  .then(() => {
+    console.log("enrolled student details successfuly uploaded");
+  });
 
-app.listen(port, () => console.log(`server started on port ${port}`));
+db.ref("/facultyDetails")
+  .set(facultyDetails)
+  .then(() => {
+    console.log("faculty details successfuly uploaded");
+  });
+
+db.ref("/studentDetails")
+  .set(studentDetails)
+  .then(() => {
+    console.log("student details successfuly uploaded");
+  });
