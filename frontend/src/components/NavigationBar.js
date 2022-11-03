@@ -35,6 +35,9 @@ export default function NavigationBar() {
               <Nav.Link href="/dashboard" style={{ color: "#ffffff" }}>
                 Dashboard
               </Nav.Link>
+              <Nav.Link href="/timetable" style={{ color: "#ffffff" }}>
+                TimeTable
+              </Nav.Link>
             </>
           )}
         </Nav>
