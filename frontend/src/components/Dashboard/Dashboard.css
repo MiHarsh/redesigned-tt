@@ -1,0 +1,44 @@
+.split {
+    height: 60vh;
+    width: 50%;
+    position: relative;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    /* border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133)); */
+    padding-top: 20px;
+  }
+.borderstyle{
+  border-radius: 20px;
+  box-shadow: 3px 3px rgb(192, 217, 226), -.4em  0.2em .4em rgb(151, 181, 218);
+  width: '100%';  
+  border-radius: "20px";
+  
+}
+
+  /* Control the left side */
+  .left {
+    left: 0;
+    /* height: 60vh; */
+  }
+  /* Control the right side */
+  .right {
+    right: 0;
+    border-left: 1px solid #50569d;
+  }
+  
+  /* If you want the content centered horizontally and vertically */
+  .centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  
+  /* Style the image inside the centered container, if needed */
+  .centered img {
+    width: 150px;
+    border-radius: 50%;
+  }
+  
