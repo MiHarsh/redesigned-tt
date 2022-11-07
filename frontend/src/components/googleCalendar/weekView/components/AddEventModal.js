@@ -2,38 +2,33 @@ import { Modal, Button } from "antd";
 import moment from "moment";
 import React, { Component } from "react";
 import AddEvent from "./AddEvent";
-let threshold=20;
+let threshold = 20;
+
+const Modaltitle = (props) => {
+  return (
+    <span style={{ textAlign: "center" }}>
+      <h3 style={{ fontWeight: "bolder" }}>
+        {props.present_subject ? props.present_subject.course_name : ""}
+      </h3>
+      <h3 style={{ fontWeight: "light" }}>
+        Time: {moment(props.eventStart).format("h a")} -{" "}
+        {moment(props.eventEnd).format("h a")}{" "}
+      </h3>{" "}
+    </span>
+  );
+};
+
 class AddEventModal extends Component {
   state = {
-    course_code:this.props.course_code,
-    start:this.props.start,
-    end:this.props.end,
-    eventId:this.props.eventId
+    course_code: this.props.course_code,
+    start: this.props.start,
+    end: this.props.end,
+    eventId: this.props.eventId,
   };
 
-  /**
-   * To show the title auto fill and
-   * re-initialize the title on adding new event
-   */
-  // static getDerivedStateFromProps (nextProps) {
-  //   if (nextProps.eventTitle) {
-  //     return {
-  //       title: nextProps.eventTitle,
-  //     };
-  //   } else {
-  //     return {
-  //       title: '',
-  //     };
-  //   }
-  // }
-
-  /**
-   * Sets the title in the state
-   * @param {event} event - JS/React event
-   */
   handleTitleChange = (title) => {
-    console.log(title);
-    this.setState({...this.state,
+    this.setState({
+      ...this.state,
       course_code: title,
     });
   };
@@ -42,39 +37,69 @@ class AddEventModal extends Component {
    * Updates the event
    */
   handleOk = () => {
-   // console.log(this.state);
-   console.log(this.state);
+    // console.log(this.state);
+    console.log(this.state, "handle OK of addeventmodal");
     this.props.onOk(this.state);
-    
-  }
-  isMeetThreshold = (data,threshold) =>{
-   let flag=0;
-   console.log(data);
-   for(let i=0;i<data.length;i++){
-    if(data[i].clashed_count>threshold){flag=1;break;}
-   }
-   return flag;
-  }
+    console.log(
+      this.state.course_code,
+      this.state.start,
+      this.state.end,
+      "handle OK of addeventmodal"
+    );
+  };
+  isMeetThreshold = (data, threshold) => {
+    let flag = 0;
+    console.log(data);
+    for (let i = 0; i < data.length; i++) {
+      if (data[i].clashed_count > threshold) {
+        flag = 1;
+        break;
+      }
+    }
+    return flag;
+  };
   render() {
-    let data  = this.props.clashes;
+    let data = this.props.clashes;
+    console.log("this.state of add event modal", this.props);
     return (
       <Modal
-      title={<span style={{textAlign:"center"}}><h3 style={{fontWeight:"bolder"}}> {this.props.present_subject?this.props.present_subject.course_name:""}</h3>  <h3 style={{fontWeight:"light"}}>Time :  {moment(this.props.eventStart).format("h a")} -  {moment(this.props.eventEnd).format("h a")}</h3></span>}
+        title={Modaltitle(this.props)}
         visible={this.props.visible}
-        onOk={()=>this.handleOk()}
+        onOk={() => this.handleOk()}
         onCancel={this.props.onCloseTab}
         width="70%"
-        style={{fontFamily:"Ubuntu"}}
+        style={{
+          fontFamily: "Ubuntu",
+        }}
         footer={[
-          <Button key="back" onClick={(e)=>{this.props.onCancel(this.state.eventId)}}>
-            {this.props.editMode ? "Delete" : "Cancel"}
+          <Button
+            key="back"
+            onClick={(e) => {
+              this.props.onCancel(this.state.eventId);
+            }}
+          >
+            {" "}
+            {this.props.editMode ? "Delete" : "Cancel"}{" "}
           </Button>,
-          <Button key="submit" type="primary" disabled={(this.props.isTeacherClash) || (this.props.isSubjectClash && this.isMeetThreshold(data,threshold))? "disabled":""} onClick={()=>{this.handleOk()}}>
-            {this.props.editMode ? "Update Event" : "Add Event"}
+          <Button
+            key="submit"
+            type="primary"
+            disabled={
+              this.props.isTeacherClash ||
+              (this.props.isSubjectClash &&
+                this.isMeetThreshold(data, threshold))
+                ? "disabled"
+                : ""
+            }
+            onClick={() => {
+              this.handleOk();
+            }}
+          >
+            {" "}
+            {this.props.editMode ? "Update Event" : "Add Event"}{" "}
           </Button>,
         ]}
       >
-       
         <AddEvent
           title={this.state.course_code}
           onTitleChange={this.handleTitleChange}
@@ -82,11 +107,11 @@ class AddEventModal extends Component {
           end={this.props.eventEnd}
           onTimeChange={this.props.onTimeChange}
           isBooked={this.props.isSubjectClash}
-          subjects = {this.props.subjects}
-          eventId = {this.props.eventId}
-          present_subject = {this.props.present_subject}
-          data = {data}
-        />
+          subjects={this.props.subjects}
+          eventId={this.props.eventId}
+          present_subject={this.props.present_subject}
+          data={data}
+        />{" "}
       </Modal>
     );
   }
