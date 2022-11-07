@@ -1,0 +1,1769 @@
+{
+  "table": [
+    {
+      "subject_code": "CEC201",
+      "Name of Subject": "Surveying",
+      "Course Instructor": "Prof. Avinash Kumar Singh"
+    },
+    {
+      "subject_code": "CEC202",
+      "Name of Subject": "Environmental Engineering",
+      "Course Instructor": "Prof. Kironmala Chanda"
+    },
+    {
+      "subject_code": "CEC203",
+      "Name of Subject": "Construction Materials and Management",
+      "Course Instructor": "Prof. Sowmiya Chawla"
+    },
+    {
+      "subject_code": "CEC301",
+      "Name of Subject": "Structural Analysis - II",
+      "Course Instructor": "Prof. Sukanta Chakraborty"
+    },
+    {
+      "subject_code": "CEC302",
+      "Name of Subject": "Foundation Engineering",
+      "Course Instructor": "Prof. Lohit Kumar Nainegali"
+    },
+    {
+      "subject_code": "CEC501",
+      "Name of Subject": "Numerical Methods in Civil Engineering",
+      "Course Instructor": "Prof. Sekhar Chandra Dutta"
+    },
+    {
+      "subject_code": "CEC503",
+      "Name of Subject": "Mechanics of Deformable Solids",
+      "Course Instructor": "Prof. Sarat Kumar Panda"
+    },
+    {
+      "subject_code": "CEC504",
+      "Name of Subject": "Mechanics of Geomaterials",
+      "Course Instructor": "Prof. Sarat Kumar Das"
+    },
+    {
+      "subject_code": "CEC505",
+      "Name of Subject": "Engineering Hydrology &amp; Hydraulics",
+      "Course Instructor": "Prof. Srinivas Pasupuleti"
+    },
+    {
+      "subject_code": "CEC506",
+      "Name of Subject": "Transport System Design &amp; Management",
+      "Course Instructor": "Prof. Smruti Sourava Mohapatra"
+    },
+    {
+      "subject_code": "CEC512",
+      "Name of Subject": "Applied Engineering Statistics",
+      "Course Instructor": "Prof. Leeza Malik"
+    },
+    {
+      "subject_code": "CEC513",
+      "Name of Subject": "River Engineering",
+      "Course Instructor": "Prof. Bandita Barman"
+    },
+    {
+      "subject_code": "CED401",
+      "Name of Subject": "Traffic Engineering and Management",
+      "Course Instructor": "Prof. Leeza Malik"
+    },
+    {
+      "subject_code": "CED501",
+      "Name of Subject": "Computational Solid Mechanics",
+      "Course Instructor": "Prof. Pranesh Roy"
+    },
+    {
+      "subject_code": "CEE201",
+      "Name of Subject": "Mechanics of Solid",
+      "Course Instructor": "Prof. Pranesh Roy"
+    },
+    {
+      "subject_code": "CEO301",
+      "Name of Subject": "Reliability and Risk Assessment",
+      "Course Instructor": "Prof. Rahul Bhartiya"
+    },
+    {
+      "subject_code": "CEO401",
+      "Name of Subject": "Flow and Transport through Porous Media",
+      "Course Instructor": "Prof. Renu V"
+    },
+    {
+      "subject_code": "CEO534",
+      "Name of Subject": "Soil-Structure Interaction",
+      "Course Instructor": "Prof. Rajib Sarkar"
+    },
+    {
+      "subject_code": "CHC201",
+      "Name of Subject": "Chemical Process Calculations",
+      "Course Instructor": "Prof. Suresh Kumar Yatirajula"
+    },
+    {
+      "subject_code": "CHC202",
+      "Name of Subject": "Fluid and Particle Mechanics",
+      "Course Instructor": "Prof. Sandip Mandal"
+    },
+    {
+      "subject_code": "CHC203",
+      "Name of Subject": "Heat Transfer",
+      "Course Instructor": "Prof. Aditya Kumar"
+    },
+    {
+      "subject_code": "CHC301",
+      "Name of Subject": "Separation Processes",
+      "Course Instructor": "Prof. Paidinaidu Paluri"
+    },
+    {
+      "subject_code": "CHC302",
+      "Name of Subject": "Chemical Kinetics and Reaction Engineering",
+      "Course Instructor": "Prof. Pantula Devi Priyanka"
+    },
+    {
+      "subject_code": "CHC303",
+      "Name of Subject": "Process Design and Economics",
+      "Course Instructor": "Prof. Bidhan Chandra"
+    },
+    {
+      "subject_code": "CHC501",
+      "Name of Subject": "Advanced Transport Phenomena",
+      "Course Instructor": "Prof. Soubhik Kumar Bhaumik"
+    },
+    {
+      "subject_code": "CHC502",
+      "Name of Subject": "Advanced Chemical Engineering Thermodynamics",
+      "Course Instructor": "Prof. Suman Dutta"
+    },
+    {
+      "subject_code": "CHC503",
+      "Name of Subject": "Computational Techniques in Chemical Engineering",
+      "Course Instructor": "Prof. Sourav Sengupta"
+    },
+    {
+      "subject_code": "CHC504",
+      "Name of Subject": "Advanced Chemical Reaction Engineering",
+      "Course Instructor": "Prof. Krishna Sandilya Durbha"
+    },
+    {
+      "subject_code": "CHC505",
+      "Name of Subject": "Advanced Process Control",
+      "Course Instructor": "Prof. A Samanta"
+    },
+    {
+      "subject_code": "CHC509",
+      "Name of Subject": "Computational Fluid Dynamics",
+      "Course Instructor": "Prof. Soubhik Kumar Bhaumik"
+    },
+    {
+      "subject_code": "CHC519",
+      "Name of Subject": "Catalytic Processes and Reactors",
+      "Course Instructor": "Prof. Ejaz Ahmad"
+    },
+    {
+      "subject_code": "CHC520",
+      "Name of Subject": "Applied Statistics in Chemical Engineering",
+      "Course Instructor": "Prof. Vineet Kumar"
+    },
+    {
+      "subject_code": "CHC525",
+      "Name of Subject": "Unit Operations for Pharmaceutics",
+      "Course Instructor": "Prof. Lutukurthi D N V V Konda"
+    },
+    {
+      "subject_code": "CHD405",
+      "Name of Subject": "Energy Technology",
+      "Course Instructor": "Prof. Mahendra Naktuji Nandanwar"
+    },
+    {
+      "subject_code": "CHD408",
+      "Name of Subject": "Process Data Analytics",
+      "Course Instructor": "Prof. Pantula Devi Priyanka"
+    },
+    {
+      "subject_code": "CHE201",
+      "Name of Subject": "Engineering Thermodynamics",
+      "Course Instructor": "Prof. Siddhartha Sengupta"
+    },
+    {
+      "subject_code": "CHO402",
+      "Name of Subject": "Biofuels &amp; Biomass Conversion Technology",
+      "Course Instructor": "Prof. Ejaz Ahmad"
+    },
+    {
+      "subject_code": "CHO404",
+      "Name of Subject": "AI in Process Industries",
+      "Course Instructor": "Prof. Soumyajit Sen Gupta"
+    },
+    {
+      "subject_code": "CSC19101",
+      "Name of Subject": "System Simulation",
+      "Course Instructor": "Prof. Rajendra Pamula"
+    },
+    {
+      "subject_code": "CSC19102",
+      "Name of Subject": "Computational Biology",
+      "Course Instructor": "Prof. Annavarapu Chandra Sekhara Rao"
+    },
+    {
+      "subject_code": "CSC201",
+      "Name of Subject": "Data Structures",
+      "Course Instructor": "Prof. Soumen Bag"
+    },
+    {
+      "subject_code": "CSC202",
+      "Name of Subject": "Discrete Mathematics",
+      "Course Instructor": "Prof. Hari Om"
+    },
+    {
+      "subject_code": "CSC203",
+      "Name of Subject": "Computer Organization",
+      "Course Instructor": "Prof. Sachin Tripathi"
+    },
+    {
+      "subject_code": "CSC301",
+      "Name of Subject": "Database Management Systems",
+      "Course Instructor": "Prof. Saurabh Srivastava"
+    },
+    {
+      "subject_code": "CSC302",
+      "Name of Subject": "Compiler Design",
+      "Course Instructor": "Prof. Prasanta K. Jana"
+    },
+    {
+      "subject_code": "CSC501",
+      "Name of Subject": "Advanced Data Structures &amp; Algorithms",
+      "Course Instructor": "Prof. Gadadhar Sahoo"
+    },
+    {
+      "subject_code": "CSC502",
+      "Name of Subject": "Advanced DBMS",
+      "Course Instructor": "Prof. Chiranjeev Kumar"
+    },
+    {
+      "subject_code": "CSC503",
+      "Name of Subject": "Algorithmic Graph Theory",
+      "Course Instructor": "Prof. Haider Banka"
+    },
+    {
+      "subject_code": "CSC504",
+      "Name of Subject": "Computing Techniques and Mathematical Tools",
+      "Course Instructor": "Prof. Sushanta Mukhopadhyay"
+    },
+    {
+      "subject_code": "CSC505",
+      "Name of Subject": "High Performance Computer Architecture",
+      "Course Instructor": "Prof. Gosta Pada Biswas"
+    },
+    {
+      "subject_code": "CSC517",
+      "Name of Subject": "Selected Topics in Algorithms",
+      "Course Instructor": "Prof. Gadadhar Sahoo"
+    },
+    {
+      "subject_code": "CSC518",
+      "Name of Subject": "Number Theory and Cryptography",
+      "Course Instructor": "Prof. Hari Om"
+    },
+    {
+      "subject_code": "CSD407",
+      "Name of Subject": "Network Security",
+      "Course Instructor": "Prof. Ansuman Bhattacharya"
+    },
+    {
+      "subject_code": "CSD502",
+      "Name of Subject": "Cloud Computing",
+      "Course Instructor": "Prof. Dharavath Ramesh"
+    },
+    {
+      "subject_code": "CSD511",
+      "Name of Subject": "Information Theory and Coding",
+      "Course Instructor": "Prof. Gadadhar Sahoo"
+    },
+    {
+      "subject_code": "CSD518",
+      "Name of Subject": "Pattern Recognition",
+      "Course Instructor": "Prof. Ayan Das"
+    },
+    {
+      "subject_code": "CSE201",
+      "Name of Subject": "Data Structures and Algorithms",
+      "Course Instructor": "Prof. Ansuman Bhattacharya"
+    },
+    {
+      "subject_code": "CSO303",
+      "Name of Subject": "Artificial Intelligence",
+      "Course Instructor": "Prof. Tarachand Amgoth"
+    },
+    {
+      "subject_code": "CSO403",
+      "Name of Subject": "Internet Technology",
+      "Course Instructor": "Prof. Rajendra Pamula"
+    },
+    {
+      "subject_code": "CSO404",
+      "Name of Subject": "Cryptography",
+      "Course Instructor": "Prof. Gosta Pada Biswas"
+    },
+    {
+      "subject_code": "CSO504",
+      "Name of Subject": "Machine Learning",
+      "Course Instructor": "Prof. Koustav Rudra"
+    },
+    {
+      "subject_code": "CYC501",
+      "Name of Subject": "Quantum Chemistry",
+      "Course Instructor": "Prof. Madhulika Gupta"
+    },
+    {
+      "subject_code": "CYC502",
+      "Name of Subject": "Organic Reactions and Stereochemistry",
+      "Course Instructor": "Prof. Soumitra Maity"
+    },
+    {
+      "subject_code": "CYC503",
+      "Name of Subject": "Mathematics for Chemists",
+      "Course Instructor": "Prof. Niladri Patra"
+    },
+    {
+      "subject_code": "CYC504",
+      "Name of Subject": "Application of Spectroscopic Methods",
+      "Course Instructor": "Prof. Devendra Deo Pathak"
+    },
+    {
+      "subject_code": "CYC505",
+      "Name of Subject": "Coordination Chemistry",
+      "Course Instructor": "Prof. Sumanta Kumar Padhi"
+    },
+    {
+      "subject_code": "CYC514",
+      "Name of Subject": "Photochemistry &amp; Pericyclic Reactions",
+      "Course Instructor": "Prof. Somnath Yadav"
+    },
+    {
+      "subject_code": "CYC515",
+      "Name of Subject": "Molecular Spectroscopy",
+      "Course Instructor": "Prof. Soumit Chatterjee"
+    },
+    {
+      "subject_code": "CYC516",
+      "Name of Subject": "Strategies in Organic Synthesis",
+      "Course Instructor": "Prof. Parthasarathi Das"
+    },
+    {
+      "subject_code": "CYC522",
+      "Name of Subject": "Advanced Techniques in Materials Characterization",
+      "Course Instructor": "Prof. Ganesh Chandra Nayak"
+    },
+    {
+      "subject_code": "CYC523",
+      "Name of Subject": "Numerical Analysis and Methods in Chemistry",
+      "Course Instructor": "Prof. Madhulika Gupta"
+    },
+    {
+      "subject_code": "CYC524",
+      "Name of Subject": "Advanced Spectroscopic Methods",
+      "Course Instructor": "Prof. Rashmi Madhuri"
+    },
+    {
+      "subject_code": "CYC525",
+      "Name of Subject": "Basic of Pharmacology &amp; Drug Design",
+      "Course Instructor": "Prof. Naga Rajiv Lakkaniga"
+    },
+    {
+      "subject_code": "CYC526",
+      "Name of Subject": "Pharmaceutical Process Technology",
+      "Course Instructor": "Prof. Parthasarathi Das"
+    },
+    {
+      "subject_code": "CYC527",
+      "Name of Subject": "Formulation &amp; Drug Delivery Technology",
+      "Course Instructor": "Prof. Sagar Pal"
+    },
+    {
+      "subject_code": "CYD518",
+      "Name of Subject": "Metalloenzymes-Special Topics",
+      "Course Instructor": "Prof. Rohith P John"
+    },
+    {
+      "subject_code": "CYD522",
+      "Name of Subject": "Advanced Biocatalysis",
+      "Course Instructor": "Prof. Chanchal Haldar"
+    },
+    {
+      "subject_code": "CYD532",
+      "Name of Subject": "Solid State Materials: Chemistry &amp; Engineering",
+      "Course Instructor": "Prof. Sumanta Kumar Sahu"
+    },
+    {
+      "subject_code": "CYD534",
+      "Name of Subject": "Heterocyclic Chemistry",
+      "Course Instructor": "Prof. Swapan Dey"
+    },
+    {
+      "subject_code": "CYD536",
+      "Name of Subject": "Science of Corrosion &amp; Corrosion Control",
+      "Course Instructor": "Prof. Udayabhanu G"
+    },
+    {
+      "subject_code": "ECC201",
+      "Name of Subject": "Electronic Devices",
+      "Course Instructor": "Prof. Mukul Kumar Das"
+    },
+    {
+      "subject_code": "ECC202",
+      "Name of Subject": "Signals &amp; Networks",
+      "Course Instructor": "Prof. Prashant Kumar Varshney"
+    },
+    {
+      "subject_code": "ECC203",
+      "Name of Subject": "Digital Circuits and System Design",
+      "Course Instructor": "Prof. Jaisingh Thangaraj"
+    },
+    {
+      "subject_code": "ECC301",
+      "Name of Subject": "Principles of Communication Systems",
+      "Course Instructor": "Prof. Santanu Dwari"
+    },
+    {
+      "subject_code": "ECC302",
+      "Name of Subject": "Digital Signal Processing",
+      "Course Instructor": "Prof. Himanshu Bhusan Mishra"
+    },
+    {
+      "subject_code": "ECC303",
+      "Name of Subject": "VLSI Design",
+      "Course Instructor": "Prof. Sajal Kr. Paul"
+    },
+    {
+      "subject_code": "ECC500",
+      "Name of Subject": "Advanced Communication Theory",
+      "Course Instructor": "Prof. Govind Murmu"
+    },
+    {
+      "subject_code": "ECC501",
+      "Name of Subject": "Advanced Optical Communication",
+      "Course Instructor": "Prof. Devendra Chack"
+    },
+    {
+      "subject_code": "ECC504",
+      "Name of Subject": "Fundamentals of Communication Systems Design",
+      "Course Instructor": "Prof. Suraj Suman"
+    },
+    {
+      "subject_code": "ECC505",
+      "Name of Subject": "Numerical Methods and Optimization Techniques",
+      "Course Instructor": "Prof. Abhishek Grover"
+    },
+    {
+      "subject_code": "ECC542",
+      "Name of Subject": "Microwave Transmission Lines and Matching Networks",
+      "Course Instructor": "Prof. Ravi Kumar Gangwar"
+    },
+    {
+      "subject_code": "ECC580",
+      "Name of Subject": "Mathematical and Simulation Techniques",
+      "Course Instructor": "Prof. Subrata Bhattacharya"
+    },
+    {
+      "subject_code": "ECC582",
+      "Name of Subject": "Digital VLSI Circuits Design",
+      "Course Instructor": "Prof. Subindu Kumar"
+    },
+    {
+      "subject_code": "ECD403",
+      "Name of Subject": "Computer Networks",
+      "Course Instructor": "Prof. Debjani Mitra"
+    },
+    {
+      "subject_code": "ECD411",
+      "Name of Subject": "Machine learning &amp; Artificial Intelligence",
+      "Course Instructor": "Prof. Samrat Mukhopadhyay"
+    },
+    {
+      "subject_code": "ECE301",
+      "Name of Subject": "Analog Interface Electronics",
+      "Course Instructor": "Prof. Amitesh Kumar"
+    },
+    {
+      "subject_code": "ECO561",
+      "Name of Subject": "Embedded System Design",
+      "Course Instructor": "Prof. Mrinal Sen"
+    },
+    {
+      "subject_code": "EEC201",
+      "Name of Subject": "Signals, Systems and Networks",
+      "Course Instructor": "Prof. Biplab Bhattacharyya"
+    },
+    {
+      "subject_code": "EEC202",
+      "Name of Subject": "Analog and Digital Electronics",
+      "Course Instructor": "Prof. Arijit Baral"
+    },
+    {
+      "subject_code": "EEC203",
+      "Name of Subject": "Electromagnetic Theory and Applications",
+      "Course Instructor": "Prof. Bhukya Krishna Naick"
+    },
+    {
+      "subject_code": "EEC308",
+      "Name of Subject": "Electrical Machines - II",
+      "Course Instructor": "Prof. Sukanta Das"
+    },
+    {
+      "subject_code": "EEC309",
+      "Name of Subject": "Modern Control",
+      "Course Instructor": "Prof. Sanjoy Mandal"
+    },
+    {
+      "subject_code": "EEC310",
+      "Name of Subject": "Power Electronics",
+      "Course Instructor": "Prof. Kartick Chandra Jana"
+    },
+    {
+      "subject_code": "EEC502",
+      "Name of Subject": "Modelling of Electrical Machines",
+      "Course Instructor": "Prof. Devara Vijaya Bhaskar"
+    },
+    {
+      "subject_code": "EEC503",
+      "Name of Subject": "Numerical Simulation for Electrical Engineering",
+      "Course Instructor": "Prof. Kalyan Chatterjee"
+    },
+    {
+      "subject_code": "EEC504",
+      "Name of Subject": "Advanced Control System",
+      "Course Instructor": "Prof. Somnath Pan"
+    },
+    {
+      "subject_code": "EEC511",
+      "Name of Subject": "Renewable Energy Sources",
+      "Course Instructor": "Prof. Pradip Kumar Sadhu"
+    },
+    {
+      "subject_code": "EEC512",
+      "Name of Subject": "Soft Computing Techniques",
+      "Course Instructor": "Prof. Gauri Shankar"
+    },
+    {
+      "subject_code": "EEC518",
+      "Name of Subject": "Industrial Instrumentation",
+      "Course Instructor": "Prof. Nitai Pal"
+    },
+    {
+      "subject_code": "EEC521",
+      "Name of Subject": "Battery Management Systems",
+      "Course Instructor": "Prof. Vedantham Lakshmi Srinivas"
+    },
+    {
+      "subject_code": "EEC522",
+      "Name of Subject": "Electromagnetic Compatibility of Power Converters",
+      "Course Instructor": "Prof. Ashok Kumar"
+    },
+    {
+      "subject_code": "EED401",
+      "Name of Subject": "Power System Protection and Switchgear",
+      "Course Instructor": "Prof. Paresh Kumar Nayak"
+    },
+    {
+      "subject_code": "EED402",
+      "Name of Subject": "High Voltage Engineering and Applications",
+      "Course Instructor": "Prof. Arijit Baral"
+    },
+    {
+      "subject_code": "EED403",
+      "Name of Subject": "Industrial Power Electronics",
+      "Course Instructor": "Prof. Anirban Ghoshal"
+    },
+    {
+      "subject_code": "EED404",
+      "Name of Subject": "Reactive Power and Voltage Control",
+      "Course Instructor": "Prof. Vivekananda Mukherjee"
+    },
+    {
+      "subject_code": "EEE202",
+      "Name of Subject": "Utilization of Electrical Energy",
+      "Course Instructor": "Prof. Dushyant Sharma"
+    },
+    {
+      "subject_code": "EEO403",
+      "Name of Subject": "Digital Signal Processing",
+      "Course Instructor": "Prof. Sanjoy Mandal"
+    },
+    {
+      "subject_code": "EEO404",
+      "Name of Subject": "Renewable Energy Systems and Energy Audit",
+      "Course Instructor": "Prof. Bhukya Krishna Naick"
+    },
+    {
+      "subject_code": "EEO405",
+      "Name of Subject": "Industrial Automation",
+      "Course Instructor": "Prof. Ashok Kumar"
+    },
+    {
+      "subject_code": "ESC201",
+      "Name of Subject": "Drinking Water Supply and Treatment",
+      "Course Instructor": "Prof. Sukha Ranjan Samadder"
+    },
+    {
+      "subject_code": "ESC202",
+      "Name of Subject": "Air Pollution",
+      "Course Instructor": "Prof. Suresh Pandian E"
+    },
+    {
+      "subject_code": "ESC203",
+      "Name of Subject": "Noise Pollution and Control",
+      "Course Instructor": "Prof. Prasoon Kumar Singh"
+    },
+    {
+      "subject_code": "ESC308",
+      "Name of Subject": "Environmental Geotechnology",
+      "Course Instructor": "Prof. Biswajit Paul"
+    },
+    {
+      "subject_code": "ESC309",
+      "Name of Subject": "Wastewater Treatment",
+      "Course Instructor": "Prof. Alok Sinha"
+    },
+    {
+      "subject_code": "ESC310",
+      "Name of Subject": "Environmental Impact Assessment",
+      "Course Instructor": "Prof. Saravanan Pichiah"
+    },
+    {
+      "subject_code": "ESC501",
+      "Name of Subject": "Ecology and Environmental Microbiology",
+      "Course Instructor": "Prof. Vipin Kumar"
+    },
+    {
+      "subject_code": "ESC502",
+      "Name of Subject": "Water Supply and Treatment",
+      "Course Instructor": "Prof. Brijesh Kumar Mishra"
+    },
+    {
+      "subject_code": "ESC503",
+      "Name of Subject": "MATLAB Programming for Numerical Computation",
+      "Course Instructor": "Prof. Tinesh Pathania"
+    },
+    {
+      "subject_code": "ESC504",
+      "Name of Subject": "Air and Noise Pollution",
+      "Course Instructor": "Prof. Manish Kumar Jain"
+    },
+    {
+      "subject_code": "ESC505",
+      "Name of Subject": "Wastewater Engineering",
+      "Course Instructor": "Prof. Sheeja Jagadevan"
+    },
+    {
+      "subject_code": "ESC508",
+      "Name of Subject": "Instrumental Techniques in Environmental Analysis",
+      "Course Instructor": "Prof. Sheeja Jagadevan"
+    },
+    {
+      "subject_code": "ESC525",
+      "Name of Subject": "Environmental Chemistry",
+      "Course Instructor": "Prof. Sunil Kumar Gupta"
+    },
+    {
+      "subject_code": "ESD401",
+      "Name of Subject": "Biodiversity Conservation",
+      "Course Instructor": "Prof. Anshumali"
+    },
+    {
+      "subject_code": "ESD406",
+      "Name of Subject": "Environmental Nano Technology",
+      "Course Instructor": "Prof. Saravanan Pichiah"
+    },
+    {
+      "subject_code": "ESD502",
+      "Name of Subject": "Environmental Biotechnology",
+      "Course Instructor": "Prof. Subodh Kumar Maiti"
+    },
+    {
+      "subject_code": "ESE201",
+      "Name of Subject": "Pollution Control and Management",
+      "Course Instructor": "Prof. Madhumita Patel"
+    },
+    {
+      "subject_code": "ESO301",
+      "Name of Subject": "Life Cycle Assessment",
+      "Course Instructor": "Prof. Vittal H"
+    },
+    {
+      "subject_code": "ESO404",
+      "Name of Subject": "Sustainability Engineering",
+      "Course Instructor": "Prof. Suresh Pandian E"
+    },
+    {
+      "subject_code": "ESO405",
+      "Name of Subject": "Cleaner Energy",
+      "Course Instructor": "Prof. Saifi Izhar"
+    },
+    {
+      "subject_code": "FMC201",
+      "Name of Subject": "Colloids and Interfacial Phenomena",
+      "Course Instructor": "Prof. Rakesh Kumar"
+    },
+    {
+      "subject_code": "FMC202",
+      "Name of Subject": "Heat and Mass Transfer",
+      "Course Instructor": "Prof. Kesavan Ravi"
+    },
+    {
+      "subject_code": "FMC203",
+      "Name of Subject": "Physical Separation Processes for Coal and Minerals",
+      "Course Instructor": "Prof. Nikkam Suresh"
+    },
+    {
+      "subject_code": "FMC301",
+      "Name of Subject": "Coal and Mineral Process Equipment Selection",
+      "Course Instructor": "Prof. Pankaj Kumar Jain"
+    },
+    {
+      "subject_code": "FMC302",
+      "Name of Subject": "Extractive Metallurgy",
+      "Course Instructor": "Prof. Raj Kumar Dishwar"
+    },
+    {
+      "subject_code": "FMC501",
+      "Name of Subject": "Coal and Mineral Processing",
+      "Course Instructor": "Prof. N R Mandre"
+    },
+    {
+      "subject_code": "FMC502",
+      "Name of Subject": "Transport Phenomena",
+      "Course Instructor": "Prof. Aparna Tripathi"
+    },
+    {
+      "subject_code": "FMC503",
+      "Name of Subject": "Numerical Methods &amp; Computer Applications",
+      "Course Instructor": "Prof. Barun Kumar Nandi"
+    },
+    {
+      "subject_code": "FMC504",
+      "Name of Subject": "Unit Operations in Extractive Metallurgy",
+      "Course Instructor": "Prof. Aarti Kumari"
+    },
+    {
+      "subject_code": "FMC506",
+      "Name of Subject": "Fuel Technology",
+      "Course Instructor": "Prof. Shalini Gautam"
+    },
+    {
+      "subject_code": "FMC509",
+      "Name of Subject": "Advanced Materials and Applications",
+      "Course Instructor": "Prof. Rahul M R"
+    },
+    {
+      "subject_code": "FMC510",
+      "Name of Subject": "Mathematical Modeling of Mineral and Metallurgical Processes",
+      "Course Instructor": "Prof. Mantripragada Vishnu Teja"
+    },
+    {
+      "subject_code": "FMD461",
+      "Name of Subject": "Computational Techniques and Modelling",
+      "Course Instructor": "Prof. Nikkam Suresh"
+    },
+    {
+      "subject_code": "FMD518",
+      "Name of Subject": "Joining of Materials",
+      "Course Instructor": "Prof. Rahul M R"
+    },
+    {
+      "subject_code": "FMD525",
+      "Name of Subject": "Iron and Steel Making",
+      "Course Instructor": "Prof. Shatrughan Soren"
+    },
+    {
+      "subject_code": "FMD535",
+      "Name of Subject": "Powder Metallurgy",
+      "Course Instructor": "Prof. Kesavan Ravi"
+    },
+    {
+      "subject_code": "FMD552",
+      "Name of Subject": "Engineering Materials Selection and Design",
+      "Course Instructor": "Prof. Avanish Kumar"
+    },
+    {
+      "subject_code": "FME221",
+      "Name of Subject": "Particle Technology",
+      "Course Instructor": "Prof. Anand Anupam"
+    },
+    {
+      "subject_code": "FMO543",
+      "Name of Subject": "Waste Processing and Management",
+      "Course Instructor": "Prof. Mantripragada Vishnu Teja"
+    },
+    {
+      "subject_code": "FMO544",
+      "Name of Subject": "Clean Coal Technology",
+      "Course Instructor": "Prof. Vinod Kumar Saxena"
+    },
+    {
+      "subject_code": "FMO545",
+      "Name of Subject": "Equipment Design",
+      "Course Instructor": "Prof. Rajasekhar Reddy Busigari"
+    },
+    {
+      "subject_code": "GLC201",
+      "Name of Subject": "Crystallography and Mineralogy",
+      "Course Instructor": "Prof. Alik Sundar Majumdar"
+    },
+    {
+      "subject_code": "GLC202",
+      "Name of Subject": "Physical and Structural Geology",
+      "Course Instructor": "Prof. Pranab Das"
+    },
+    {
+      "subject_code": "GLC501",
+      "Name of Subject": "Advanced Mineralogy",
+      "Course Instructor": "Prof. Upama Dutta"
+    },
+    {
+      "subject_code": "GLC502",
+      "Name of Subject": "Applied Geochemistry",
+      "Course Instructor": "Prof. Shushanta Sarangi"
+    },
+    {
+      "subject_code": "GLC503",
+      "Name of Subject": "Methods of Structural Geology",
+      "Course Instructor": "Prof. Mrinal Kanti Mukherjee"
+    },
+    {
+      "subject_code": "GLC504",
+      "Name of Subject": "Micropaleontology and Vertebrate Palaeontology",
+      "Course Instructor": "Prof. Ajoy Kumar Bhaumik"
+    },
+    {
+      "subject_code": "GLC505",
+      "Name of Subject": "Mathematics for Geoscientists",
+      "Course Instructor": "Prof. R Anand"
+    },
+    {
+      "subject_code": "GLC518",
+      "Name of Subject": "Principles and Applications of Geostatistics",
+      "Course Instructor": "Prof. B C Sarkar"
+    },
+    {
+      "subject_code": "GLC519",
+      "Name of Subject": "Engineering Geology",
+      "Course Instructor": "Prof. Rajendra Kumar Dubey"
+    },
+    {
+      "subject_code": "GLC520",
+      "Name of Subject": "Hydrogeology",
+      "Course Instructor": "Prof. Ashutosh Tripathy"
+    },
+    {
+      "subject_code": "GLC552",
+      "Name of Subject": "Sample Preparation and Analytical Technique in Geosciences",
+      "Course Instructor": "Prof. Alik Sundar Majumdar"
+    },
+    {
+      "subject_code": "GLC553",
+      "Name of Subject": "Geology of Natural Resources",
+      "Course Instructor": "Prof. A S Venkatesh"
+    },
+    {
+      "subject_code": "GLD521",
+      "Name of Subject": "Stratigraphy",
+      "Course Instructor": "Prof. R Anand"
+    },
+    {
+      "subject_code": "GLD522",
+      "Name of Subject": "Coalbed Methane, Shale Gas and Gas Hydrate Exploration",
+      "Course Instructor": "Prof. A K Varma"
+    },
+    {
+      "subject_code": "GLD591",
+      "Name of Subject": "Rock Slope Engineering",
+      "Course Instructor": "Prof. Kripamoy Sarkar"
+    },
+    {
+      "subject_code": "GLE201",
+      "Name of Subject": "Geology for Engineering and Sciences",
+      "Course Instructor": "Prof. Pranab Das"
+    },
+    {
+      "subject_code": "GLO523",
+      "Name of Subject": "Atmosphere, Ocean and Climate Dynamics",
+      "Course Instructor": "Prof. Anup Krishna Prasad"
+    },
+    {
+      "subject_code": "GLO532",
+      "Name of Subject": "Environmental Geology",
+      "Course Instructor": "Prof. A S Venkatesh"
+    },
+    {
+      "subject_code": "GPC201",
+      "Name of Subject": "Introduction to Rock Physics",
+      "Course Instructor": "Prof. Anil Kumar Chaubey"
+    },
+    {
+      "subject_code": "GPC202",
+      "Name of Subject": "Self-Potential Method: Theory and Application",
+      "Course Instructor": "Prof. Arun Singh"
+    },
+    {
+      "subject_code": "GPC501",
+      "Name of Subject": "Solid Earth Geophysics",
+      "Course Instructor": "Prof. Srinivasa Rao Gangumalla"
+    },
+    {
+      "subject_code": "GPC502",
+      "Name of Subject": "Gravity Method",
+      "Course Instructor": "Prof. Upendra K. Singh"
+    },
+    {
+      "subject_code": "GPC503",
+      "Name of Subject": "Remote Sensing Principles",
+      "Course Instructor": "Prof. Sanjit Kumar Pal"
+    },
+    {
+      "subject_code": "GPC504",
+      "Name of Subject": "Mathematical Functional Analysis",
+      "Course Instructor": "Prof. Niptika Jana"
+    },
+    {
+      "subject_code": "GPC516",
+      "Name of Subject": "Geophysical Inversion",
+      "Course Instructor": "Prof. Saumen Maiti"
+    },
+    {
+      "subject_code": "GPC517",
+      "Name of Subject": "Seismic Data Processing and Interpretation",
+      "Course Instructor": "Prof. Saurabh Datta Gupta"
+    },
+    {
+      "subject_code": "GPC530",
+      "Name of Subject": "Seismology",
+      "Course Instructor": "Prof. Mohit Agrawal"
+    },
+    {
+      "subject_code": "GPC531",
+      "Name of Subject": "Geotechnical Modelling",
+      "Course Instructor": "Prof. Arun Singh"
+    },
+    {
+      "subject_code": "GPC532",
+      "Name of Subject": "Hydrology",
+      "Course Instructor": "Prof. Saumen Maiti"
+    },
+    {
+      "subject_code": "GPC533",
+      "Name of Subject": "Seismic Hazard Zonation",
+      "Course Instructor": "Prof. Mohit Agrawal"
+    },
+    {
+      "subject_code": "GPC534",
+      "Name of Subject": "Finite Element Analysis",
+      "Course Instructor": "Prof. Swarandeep Sahoo"
+    },
+    {
+      "subject_code": "GPC541",
+      "Name of Subject": "Numerical Analysis and Data Structure",
+      "Course Instructor": "Prof. Swarandeep Sahoo"
+    },
+    {
+      "subject_code": "GPC542",
+      "Name of Subject": "Geophysical Field Theory",
+      "Course Instructor": "Prof. Niptika Jana"
+    },
+    {
+      "subject_code": "GPD501",
+      "Name of Subject": "Geothermics and Geodynamics",
+      "Course Instructor": "Prof. Prosanta Kumar Khan"
+    },
+    {
+      "subject_code": "GPD502",
+      "Name of Subject": "Formation Evaluation",
+      "Course Instructor": "Prof. Prosanta Kumar Khan"
+    },
+    {
+      "subject_code": "GPD503",
+      "Name of Subject": "Image Processing and Geographic Information System",
+      "Course Instructor": "Prof. Sanjit Kumar Pal"
+    },
+    {
+      "subject_code": "GPD504",
+      "Name of Subject": "Airborne Geophysics",
+      "Course Instructor": "Prof. Srinivasa Rao Gangumalla"
+    },
+    {
+      "subject_code": "GPE202",
+      "Name of Subject": "Geophysical Prospecting",
+      "Course Instructor": "Prof. Saurabh Datta Gupta"
+    },
+    {
+      "subject_code": "GPO501",
+      "Name of Subject": "Groundwater Geophysics",
+      "Course Instructor": "Prof. Upendra K. Singh"
+    },
+    {
+      "subject_code": "HSC501",
+      "Name of Subject": "Research Methodology",
+      "Course Instructor": "Prof. Deepika Sharma"
+    },
+    {
+      "subject_code": "HSC504",
+      "Name of Subject": "Social Theory and Sociological Practices",
+      "Course Instructor": "Prof. Dipannita Chand"
+    },
+    {
+      "subject_code": "HSC508",
+      "Name of Subject": "Understanding Philosophy",
+      "Course Instructor": "Prof. Gyan Prakash"
+    },
+    {
+      "subject_code": "HSC509",
+      "Name of Subject": "Perspectives on Human Behaviour",
+      "Course Instructor": "Prof. Ahmed Sameer"
+    },
+    {
+      "subject_code": "HSI500",
+      "Name of Subject": "Research and Technical Communication",
+      "Course Instructor": "Prof. Atreyee Mukherjee"
+    },
+    {
+      "subject_code": "HSO301",
+      "Name of Subject": "Ethical Issues in Sceince",
+      "Course Instructor": "Prof. Ajit Kumar Behura"
+    },
+    {
+      "subject_code": "HSO307",
+      "Name of Subject": "Philosophy and Critical Thinking",
+      "Course Instructor": "Prof. Gyan Prakash"
+    },
+    {
+      "subject_code": "HSO308",
+      "Name of Subject": "Social Psychology",
+      "Course Instructor": "Prof. Sucharita Maji"
+    },
+    {
+      "subject_code": "MCC201",
+      "Name of Subject": "Modern Algebra",
+      "Course Instructor": "Prof. Abhay Kumar Singh"
+    },
+    {
+      "subject_code": "MCC202",
+      "Name of Subject": "Computer Organization and Architecture",
+      "Course Instructor": "Prof. Ankush Acharyya"
+    },
+    {
+      "subject_code": "MCC203",
+      "Name of Subject": "Real Analysis",
+      "Course Instructor": "Prof. A Antony Selvan"
+    },
+    {
+      "subject_code": "MCC301",
+      "Name of Subject": "Number Theory and Cryptography",
+      "Course Instructor": "Prof. Pramod Kumar Kewat"
+    },
+    {
+      "subject_code": "MCC501",
+      "Name of Subject": "Analysis",
+      "Course Instructor": "Prof. Sanjeev Anand Sahu"
+    },
+    {
+      "subject_code": "MCC502",
+      "Name of Subject": "Differential Equations",
+      "Course Instructor": "Prof. Ranjit Kumar Upadhyay"
+    },
+    {
+      "subject_code": "MCC503",
+      "Name of Subject": "Numerical Methods",
+      "Course Instructor": "Prof. Shishir Gupta"
+    },
+    {
+      "subject_code": "MCC504",
+      "Name of Subject": "Data Structures",
+      "Course Instructor": "Prof. Abhishek Kumar Singh"
+    },
+    {
+      "subject_code": "MCC505",
+      "Name of Subject": "Probability &amp; Statistics",
+      "Course Instructor": "Prof. Shuvashree Mondal"
+    },
+    {
+      "subject_code": "MCC514",
+      "Name of Subject": "Functional Analysis",
+      "Course Instructor": "Prof. Akhilesh Prasad"
+    },
+    {
+      "subject_code": "MCC515",
+      "Name of Subject": "Topology",
+      "Course Instructor": "Prof. Seetala Prasad Tiwari"
+    },
+    {
+      "subject_code": "MCC516",
+      "Name of Subject": "Computational Fluid Dynamics",
+      "Course Instructor": "Prof. Ramanababu Kaligatla"
+    },
+    {
+      "subject_code": "MCC517",
+      "Name of Subject": "Design and Analysis of Algorithms",
+      "Course Instructor": "Prof. Pentyala Srinivasa Rao"
+    },
+    {
+      "subject_code": "MCC520",
+      "Name of Subject": "Fourier Analysis and its Applications",
+      "Course Instructor": "Prof. A Antony Selvan"
+    },
+    {
+      "subject_code": "MCC521",
+      "Name of Subject": "Bayesian Survival Analysis",
+      "Course Instructor": "Prof. Nabakumar Jana"
+    },
+    {
+      "subject_code": "MCC531",
+      "Name of Subject": "Advanced Data Structures &amp; Algorithm",
+      "Course Instructor": "Prof. Dinabandhu Pradhan"
+    },
+    {
+      "subject_code": "MCC532",
+      "Name of Subject": "Fundamentals of Machine Learning",
+      "Course Instructor": "Prof. Shuvashree Mondal"
+    },
+    {
+      "subject_code": "MCC533",
+      "Name of Subject": "Computer Oriented Numerical Methods",
+      "Course Instructor": "Prof. Ruchika Sehgal"
+    },
+    {
+      "subject_code": "MCC534",
+      "Name of Subject": "Statistics in Decision Makings",
+      "Course Instructor": "Prof. G N Singh"
+    },
+    {
+      "subject_code": "MCC535",
+      "Name of Subject": "Soft Computing Techniques",
+      "Course Instructor": "Prof. Santimoy Kundu"
+    },
+    {
+      "subject_code": "MCD541",
+      "Name of Subject": "GPU Computing",
+      "Course Instructor": "Prof. Badam Singh Kushvah"
+    },
+    {
+      "subject_code": "MCO401",
+      "Name of Subject": "Partial Differential Equations",
+      "Course Instructor": "Prof. Mritunjay Kumar Singh"
+    },
+    {
+      "subject_code": "MCO502",
+      "Name of Subject": "Optimization Techniques",
+      "Course Instructor": "Prof. Anurag Jayswal"
+    },
+    {
+      "subject_code": "MEC201",
+      "Name of Subject": "Kinematics of Machines",
+      "Course Instructor": "Prof. Shibayan Sarkar"
+    },
+    {
+      "subject_code": "MEC202",
+      "Name of Subject": "Fluid Mechanics",
+      "Course Instructor": "Prof. Swagata Bhaumik"
+    },
+    {
+      "subject_code": "MEC203",
+      "Name of Subject": "Applied Thermodynamics",
+      "Course Instructor": "Prof. Rakesh Kumar"
+    },
+    {
+      "subject_code": "MEC301",
+      "Name of Subject": "Machine Design",
+      "Course Instructor": "Prof. Kailash Jha"
+    },
+    {
+      "subject_code": "MEC302",
+      "Name of Subject": "Machining and Machine Tools",
+      "Course Instructor": "Prof. Alok Kumar Das"
+    },
+    {
+      "subject_code": "MEC303",
+      "Name of Subject": "Advanced Solid Mechanics",
+      "Course Instructor": "Prof. Sarthak Sambit Singh"
+    },
+    {
+      "subject_code": "MEC500",
+      "Name of Subject": "Theory of Elasticity",
+      "Course Instructor": "Prof. P K Mahato"
+    },
+    {
+      "subject_code": "MEC501",
+      "Name of Subject": "Mechanical Vibration",
+      "Course Instructor": "Prof. Sanjoy K Ghoshal"
+    },
+    {
+      "subject_code": "MEC502",
+      "Name of Subject": "Numerical Methods",
+      "Course Instructor": "Prof. Shailendra Narayan Singh"
+    },
+    {
+      "subject_code": "MEC507",
+      "Name of Subject": "Incompressible and Compressible Flow",
+      "Course Instructor": "Prof. Subramanian Narayan"
+    },
+    {
+      "subject_code": "MEC508",
+      "Name of Subject": "Advanced Heat Transfer",
+      "Course Instructor": "Prof. Pawan Kumar Singh"
+    },
+    {
+      "subject_code": "MEC514",
+      "Name of Subject": "Advances in Machining",
+      "Course Instructor": "Prof. Vivek Bajpai"
+    },
+    {
+      "subject_code": "MEC516",
+      "Name of Subject": "Unconventional Manufacturing Processes",
+      "Course Instructor": "Prof. Amitava Mandal"
+    },
+    {
+      "subject_code": "MEC594",
+      "Name of Subject": "Basics of Scientific Computing",
+      "Course Instructor": "Prof. Tapan Kumar Sengupta"
+    },
+    {
+      "subject_code": "MED401",
+      "Name of Subject": "Energy Conversion Equipment",
+      "Course Instructor": "Prof. Deepak Kumar Mandal"
+    },
+    {
+      "subject_code": "MED403",
+      "Name of Subject": "Power Plant",
+      "Course Instructor": "Prof. Randip Kumar Das"
+    },
+    {
+      "subject_code": "MED404",
+      "Name of Subject": "Digital Manufacturing",
+      "Course Instructor": "Prof. Amit Rai Dixit"
+    },
+    {
+      "subject_code": "MED405",
+      "Name of Subject": "Mechanics of Composite Material",
+      "Course Instructor": "Prof. Ashis Mallick"
+    },
+    {
+      "subject_code": "MED545",
+      "Name of Subject": "Turbomachinery",
+      "Course Instructor": "Prof. Subrata Kumar Ghosh"
+    },
+    {
+      "subject_code": "MEE201",
+      "Name of Subject": "Engineering Materials",
+      "Course Instructor": "Prof. Madan Lal Chandravanshi"
+    },
+    {
+      "subject_code": "MEO522",
+      "Name of Subject": "Condition Monitoring of Machines",
+      "Course Instructor": "Prof. Sachin Kumar Singh"
+    },
+    {
+      "subject_code": "MEO585",
+      "Name of Subject": "Quality Engineering and Management",
+      "Course Instructor": "Prof. Nirmal Kumar Singh"
+    },
+    {
+      "subject_code": "MEO591",
+      "Name of Subject": "Industrial Automation",
+      "Course Instructor": "Prof. Zafar Alam"
+    },
+    {
+      "subject_code": "MMC201",
+      "Name of Subject": "Manufacturing Technology",
+      "Course Instructor": "Prof. Kalyan Kumar Singh"
+    },
+    {
+      "subject_code": "MMC202",
+      "Name of Subject": "Theory of Machines",
+      "Course Instructor": "Prof. Ajit Kumar"
+    },
+    {
+      "subject_code": "MMC203",
+      "Name of Subject": "Design of Machine Elements",
+      "Course Instructor": "Prof. K Priya Ajit"
+    },
+    {
+      "subject_code": "MMC301",
+      "Name of Subject": "Mineral Beneficiation Equipment",
+      "Course Instructor": "Prof. Jayanta Das"
+    },
+    {
+      "subject_code": "MMC302",
+      "Name of Subject": "Automation and Control in Mining Machineries",
+      "Course Instructor": "Prof. Tanmoy Maity"
+    },
+    {
+      "subject_code": "MMC501",
+      "Name of Subject": "Surface Mining Equipment",
+      "Course Instructor": "Prof. Tanweer Alam"
+    },
+    {
+      "subject_code": "MMC502",
+      "Name of Subject": "Underground Mining Machineries",
+      "Course Instructor": "Prof. Rashmi Ranjan Das"
+    },
+    {
+      "subject_code": "MMC503",
+      "Name of Subject": "Application of MATLAB in Engineering",
+      "Course Instructor": "Prof. Ananda Shankar Hati"
+    },
+    {
+      "subject_code": "MMC504",
+      "Name of Subject": "Fluid Power Systems and Control",
+      "Course Instructor": "Prof. Kabir Dasgupta"
+    },
+    {
+      "subject_code": "MMC505",
+      "Name of Subject": "Mine Electrical Engineering",
+      "Course Instructor": "Prof. Tarun Kumar Chatterjee"
+    },
+    {
+      "subject_code": "MME202",
+      "Name of Subject": "Mining Machinery",
+      "Course Instructor": "Prof. Jayanta Das"
+    },
+    {
+      "subject_code": "MMO301",
+      "Name of Subject": "Automobile Engineering",
+      "Course Instructor": "Prof. L A Kumaraswamidhas"
+    },
+    {
+      "subject_code": "MNC200",
+      "Name of Subject": "Elements of Mining",
+      "Course Instructor": "Prof. Subhas Chandra Bhowmik"
+    },
+    {
+      "subject_code": "MNC201",
+      "Name of Subject": "Rock Breakage",
+      "Course Instructor": "Prof. Arvind Kumar Mishra"
+    },
+    {
+      "subject_code": "MNC202",
+      "Name of Subject": "Mine Surveying",
+      "Course Instructor": "Prof. Dheeraj Kumar"
+    },
+    {
+      "subject_code": "MNC300",
+      "Name of Subject": "Surface Mining",
+      "Course Instructor": "Prof. Sheo Shankar Rai"
+    },
+    {
+      "subject_code": "MNC301",
+      "Name of Subject": "Mine Planning and Economics",
+      "Course Instructor": "Prof. Bhanwar Singh Choudhary"
+    },
+    {
+      "subject_code": "MNC504",
+      "Name of Subject": "Risk and Workplace Safety Management",
+      "Course Instructor": "Prof. R M Bhattacharjee"
+    },
+    {
+      "subject_code": "MNC525",
+      "Name of Subject": "Remote Sensing and Digital Image Processing",
+      "Course Instructor": "Prof. Vasanta Govind Kumar Villuri"
+    },
+    {
+      "subject_code": "MNC535",
+      "Name of Subject": "Excavation Methods for Tunnels and Caverns",
+      "Course Instructor": "Prof. Ashok Kumar"
+    },
+    {
+      "subject_code": "MNC536",
+      "Name of Subject": "Computational Subsurface Ventilation and Environment",
+      "Course Instructor": "Prof. Patitapaban Sahu"
+    },
+    {
+      "subject_code": "MNC538",
+      "Name of Subject": "Mass Production Mining Technology",
+      "Course Instructor": "Prof. Upendra Kumar Singh"
+    },
+    {
+      "subject_code": "MNC539",
+      "Name of Subject": "Computational Geomechanics and Ground Control",
+      "Course Instructor": "Prof. Gnananandh Budi"
+    },
+    {
+      "subject_code": "MNC540",
+      "Name of Subject": "Mining Equipment Reliability, Maintainability and Availability",
+      "Course Instructor": "Prof. Vijay Kumar Sinha"
+    },
+    {
+      "subject_code": "MND400",
+      "Name of Subject": "Rock Excavation Engineering",
+      "Course Instructor": "Prof. V M S R Murthy"
+    },
+    {
+      "subject_code": "MND401",
+      "Name of Subject": "Advanced Mine Ventilation",
+      "Course Instructor": "Prof. Devi Prasad Mishra"
+    },
+    {
+      "subject_code": "MND403",
+      "Name of Subject": "Geospatial Technology in Mining",
+      "Course Instructor": "Prof. Mohammad Soyeb Alam"
+    },
+    {
+      "subject_code": "MND404",
+      "Name of Subject": "Mine System Engineering",
+      "Course Instructor": "Prof. Siddharth Agarwal"
+    },
+    {
+      "subject_code": "MND405",
+      "Name of Subject": "Mine Safety Engineering",
+      "Course Instructor": "Prof. Partha Sarathi Paul"
+    },
+    {
+      "subject_code": "MND406",
+      "Name of Subject": "Mine Environmental Engineering",
+      "Course Instructor": "Prof. Bhardwaj Pandit"
+    },
+    {
+      "subject_code": "MNE201",
+      "Name of Subject": "Introduction to Mining",
+      "Course Instructor": "Prof. Kashinath Pal"
+    },
+    {
+      "subject_code": "MNO301",
+      "Name of Subject": "Modern Surveying Techniques",
+      "Course Instructor": "Prof. Ashok Kumar"
+    },
+    {
+      "subject_code": "MSC501",
+      "Name of Subject": "Management Principles &amp; Practices",
+      "Course Instructor": "Prof. Mrinalini Pandey"
+    },
+    {
+      "subject_code": "MSC502",
+      "Name of Subject": "Research Methodology and Statistics",
+      "Course Instructor": "Prof. Sandeep Mondal"
+    },
+    {
+      "subject_code": "MSC504",
+      "Name of Subject": "Financial Accounting and Reporting",
+      "Course Instructor": "Prof. J K Pattanayak"
+    },
+    {
+      "subject_code": "MSC506",
+      "Name of Subject": "Managerial Economics",
+      "Course Instructor": "Prof. Krittika Banerjee"
+    },
+    {
+      "subject_code": "MSC507",
+      "Name of Subject": "Decision Modelling",
+      "Course Instructor": "Prof. Shikha Singh"
+    },
+    {
+      "subject_code": "MSC512",
+      "Name of Subject": "Operations Management",
+      "Course Instructor": "Prof. Himanshu Gupta"
+    },
+    {
+      "subject_code": "MSC521",
+      "Name of Subject": "Productivity Management",
+      "Course Instructor": "Prof. Kuthambalayan Sridhar Thyagaraj"
+    },
+    {
+      "subject_code": "MSC522",
+      "Name of Subject": "Data Mining for Business",
+      "Course Instructor": "Prof. Shipra Maurya"
+    },
+    {
+      "subject_code": "MSC526",
+      "Name of Subject": "Strategic Management",
+      "Course Instructor": "Prof. Saumya Singh"
+    },
+    {
+      "subject_code": "MSC530",
+      "Name of Subject": "Development Economics",
+      "Course Instructor": "Prof. Aparna Krishna"
+    },
+    {
+      "subject_code": "MSC531",
+      "Name of Subject": "Managerial Ethics, Values and CSR",
+      "Course Instructor": "Prof. Sabnam Basu"
+    },
+    {
+      "subject_code": "MSD503",
+      "Name of Subject": "Sales and Distribution Management",
+      "Course Instructor": "Prof. Bibhas Chandra"
+    },
+    {
+      "subject_code": "MSD506",
+      "Name of Subject": "Investment Analysis and Portfolio Management",
+      "Course Instructor": "Prof. Niladri Das"
+    },
+    {
+      "subject_code": "MSD507",
+      "Name of Subject": "Management of Banks and Financial Institutions",
+      "Course Instructor": "Prof. Niladri Das"
+    },
+    {
+      "subject_code": "MSD508",
+      "Name of Subject": "Advertising and Promotion Management",
+      "Course Instructor": "Prof. Mrinalini Pandey"
+    },
+    {
+      "subject_code": "MSD509",
+      "Name of Subject": "Digital Marketing",
+      "Course Instructor": "Prof. Saumya Singh"
+    },
+    {
+      "subject_code": "MSD510",
+      "Name of Subject": "Personnel Management and Industrial Relations",
+      "Course Instructor": "Prof. Govind Swaroop Pathak"
+    },
+    {
+      "subject_code": "MSD511",
+      "Name of Subject": "Human Resources Development",
+      "Course Instructor": "Prof. Govind Swaroop Pathak"
+    },
+    {
+      "subject_code": "MSD512",
+      "Name of Subject": "Service Operations Management",
+      "Course Instructor": "Prof. Krishnendu Shaw"
+    },
+    {
+      "subject_code": "MSD530",
+      "Name of Subject": "Supply Chain Management and Logistics",
+      "Course Instructor": "Prof. Krishnendu Shaw"
+    },
+    {
+      "subject_code": "MSD532",
+      "Name of Subject": "Computational Finance",
+      "Course Instructor": "Prof. Shashank Bansal"
+    },
+    {
+      "subject_code": "MSD533",
+      "Name of Subject": "Marketing Research",
+      "Course Instructor": "Prof. Bibhas Chandra"
+    },
+    {
+      "subject_code": "MSO301",
+      "Name of Subject": "Operations Research",
+      "Course Instructor": "Prof. Rashmi Singh"
+    },
+    {
+      "subject_code": "MSO302",
+      "Name of Subject": "Industrial Management",
+      "Course Instructor": "Prof. Rashmi Singh"
+    },
+    {
+      "subject_code": "MSO501",
+      "Name of Subject": "Design Thinking Practices",
+      "Course Instructor": "Prof. Shikha Singh"
+    },
+    {
+      "subject_code": "PEC201",
+      "Name of Subject": "Drilling Technology",
+      "Course Instructor": "Prof. A K Pathak"
+    },
+    {
+      "subject_code": "PEC202",
+      "Name of Subject": "Elements of Reservoir Engineering",
+      "Course Instructor": "Prof. Tarkeshwar Kumar"
+    },
+    {
+      "subject_code": "PEC203",
+      "Name of Subject": "Drilling Fluids and Cements",
+      "Course Instructor": "Prof. A K Pathak"
+    },
+    {
+      "subject_code": "PEC301",
+      "Name of Subject": "Applied Petroleum Reservoir Engineering and Management",
+      "Course Instructor": "Prof. Keka Ojha"
+    },
+    {
+      "subject_code": "PEC302",
+      "Name of Subject": "Petroleum Production Operations",
+      "Course Instructor": "Prof. Vikas Mahto"
+    },
+    {
+      "subject_code": "PEC303",
+      "Name of Subject": "Natural Gas Engineering",
+      "Course Instructor": "Prof. Tarun Kumar Naiya"
+    },
+    {
+      "subject_code": "PEC501",
+      "Name of Subject": "Formation Evaluation and Production Logging",
+      "Course Instructor": "Prof. Neetish Kumar Maurya"
+    },
+    {
+      "subject_code": "PEC502",
+      "Name of Subject": "Advanced Well Testing",
+      "Course Instructor": "Prof. Tarkeshwar Kumar"
+    },
+    {
+      "subject_code": "PEC503",
+      "Name of Subject": "Numerical Methods for Petroleum Engineers",
+      "Course Instructor": "Prof. Chandan Guria"
+    },
+    {
+      "subject_code": "PEC504",
+      "Name of Subject": "Advanced Production Technologies",
+      "Course Instructor": "Prof. Ajay Suri"
+    },
+    {
+      "subject_code": "PEC505",
+      "Name of Subject": "Petroleum Economics, Risk and Uncertainty Management",
+      "Course Instructor": "Prof. Archana"
+    },
+    {
+      "subject_code": "PEC512",
+      "Name of Subject": "Health, Safety and Environment in Oil and Gas Industry",
+      "Course Instructor": "Prof. Vinay Kumar Rajak"
+    },
+    {
+      "subject_code": "PEC513",
+      "Name of Subject": "Introduction to Python and Petroleum Data Analysis",
+      "Course Instructor": "Prof. Raj Kiran"
+    },
+    {
+      "subject_code": "PED401",
+      "Name of Subject": "Offshore Drilling and Petroleum Production Practices",
+      "Course Instructor": "Prof. Raj Kiran"
+    },
+    {
+      "subject_code": "PED402",
+      "Name of Subject": "Enhanced Oil Recovery Techniques",
+      "Course Instructor": "Prof. Ajay Mandal"
+    },
+    {
+      "subject_code": "PEE201",
+      "Name of Subject": "Introduction to Petroleum Engineering",
+      "Course Instructor": "Prof. Ajay Suri"
+    },
+    {
+      "subject_code": "PEO401",
+      "Name of Subject": "Petroleum Environment, Health and Safety Practices",
+      "Course Instructor": "Prof. Vinay Kumar Rajak"
+    },
+    {
+      "subject_code": "PEO402",
+      "Name of Subject": "Well Performance",
+      "Course Instructor": "Prof. Rajeev Upadhyay"
+    },
+    {
+      "subject_code": "PEO404",
+      "Name of Subject": "Petroleum Resource Management and Project Evaluation",
+      "Course Instructor": "Prof. Sayantan Ghosh"
+    },
+    {
+      "subject_code": "PHC200",
+      "Name of Subject": "Waves and Acoustics",
+      "Course Instructor": "Prof. Vinod Kumar Singh"
+    },
+    {
+      "subject_code": "PHC201",
+      "Name of Subject": "Classical Mechanics",
+      "Course Instructor": "Prof. Tusharkanti Dey"
+    },
+    {
+      "subject_code": "PHC202",
+      "Name of Subject": "Mathematical Physics",
+      "Course Instructor": "Prof. Amitava Adak"
+    },
+    {
+      "subject_code": "PHC501",
+      "Name of Subject": "Classical Mechanics and Special Theory of Relativity",
+      "Course Instructor": "Prof. Bobby Kachappilly Antony"
+    },
+    {
+      "subject_code": "PHC502",
+      "Name of Subject": "Methods of Mathematical Physics",
+      "Course Instructor": "Prof. Vineet Kumar Rai"
+    },
+    {
+      "subject_code": "PHC503",
+      "Name of Subject": "Optics and Optical Instrumentation",
+      "Course Instructor": "Prof. Anil Kumar Nirala"
+    },
+    {
+      "subject_code": "PHC504",
+      "Name of Subject": "Electronics",
+      "Course Instructor": "Prof. Jhasaketan Nayak"
+    },
+    {
+      "subject_code": "PHC505",
+      "Name of Subject": "Numerical Methods and Computer Programming",
+      "Course Instructor": "Prof. P. M. Sarun"
+    },
+    {
+      "subject_code": "PHC514",
+      "Name of Subject": "Statistical Mechanics",
+      "Course Instructor": "Prof. Shailendra Kumar Sharma"
+    },
+    {
+      "subject_code": "PHC515",
+      "Name of Subject": "Laser Physics and Technology",
+      "Course Instructor": "Prof. Kaushal Kumar"
+    },
+    {
+      "subject_code": "PHC516",
+      "Name of Subject": "Nuclear and Particle Physics",
+      "Course Instructor": "Prof. Jairam Manam"
+    },
+    {
+      "subject_code": "PHC572",
+      "Name of Subject": "Theoretical Physics",
+      "Course Instructor": "Prof. Ritwik Mondal"
+    },
+    {
+      "subject_code": "PHC573",
+      "Name of Subject": "Experimental Physics",
+      "Course Instructor": "Prof. Ram Bilash Choudhary"
+    },
+    {
+      "subject_code": "PHC574",
+      "Name of Subject": "Numerical Methods and Simulation",
+      "Course Instructor": "Prof. P. M. Sarun"
+    },
+    {
+      "subject_code": "PHC575",
+      "Name of Subject": "Physics of Phase Transformation",
+      "Course Instructor": "Prof. Sudeshna Sen"
+    },
+    {
+      "subject_code": "PHD501",
+      "Name of Subject": "Advanced Quantum Mechanics",
+      "Course Instructor": "Prof. Binata Panda"
+    },
+    {
+      "subject_code": "PHD502",
+      "Name of Subject": "Computational Physics",
+      "Course Instructor": "Prof. Pankaj Mishra"
+    },
+    {
+      "subject_code": "PHD509",
+      "Name of Subject": "Advanced Condensed Matter Physics",
+      "Course Instructor": "Prof. Asit Kumar Kar"
+    },
+    {
+      "subject_code": "PHD510",
+      "Name of Subject": "Quantum Computation and Information",
+      "Course Instructor": "Prof. Sridhar Sahu"
+    },
+    {
+      "subject_code": "PHE200",
+      "Name of Subject": "Biomedical Engineering",
+      "Course Instructor": "Prof. Umakanta Tripathy"
+    },
+    {
+      "subject_code": "PHO300",
+      "Name of Subject": "Sensors and Transducers",
+      "Course Instructor": "Prof. Jhasaketan Nayak"
+    },
+    {
+      "subject_code": "PHO400",
+      "Name of Subject": "Nanoelectronics and Nanophotonics",
+      "Course Instructor": "Prof. Rakesh Singh Moirangthem"
+    },
+    {
+      "subject_code": "PHO401",
+      "Name of Subject": "Introduction to Quantum Devices",
+      "Course Instructor": "Prof. R Thangavel"
+    },
+    {
+      "subject_code": "PHO402",
+      "Name of Subject": "Introduction to Biophysics",
+      "Course Instructor": "Prof. Umakanta Tripathy"
+    }
+  ]
+}
