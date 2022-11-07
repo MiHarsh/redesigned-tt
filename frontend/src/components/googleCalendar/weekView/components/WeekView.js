@@ -174,6 +174,15 @@ class WeekView extends Component {
    * Closes the add event modal
    */
   onCloseAddEventModal = (eventx) => {
+    console.log(this.state,"jdshfuh");
+    const detail = {
+      subCode: this.state.subjectInfo.course_code,
+      startTime: this.state.eventStart,
+      endTime: this.state.eventEnd,
+    };
+    axios.post("http://localhost:8000/api/cancelledSlot", detail).then((res) => {
+      console.log(res);
+    });
     if (this.state.editMode) {
       this.props.onEventDelete(eventx);
       this.setState({

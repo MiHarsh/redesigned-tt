@@ -2,22 +2,8 @@ import { Modal, Button } from "antd";
 import moment from "moment";
 import React, { Component } from "react";
 import AddEvent from "./AddEvent";
+import axios from "axios";
 let threshold = 20;
-
-const Modaltitle = (props) => {
-  return (
-    <span style={{ textAlign: "center" }}>
-      <h3 style={{ fontWeight: "bolder" }}>
-        {props.present_subject ? props.present_subject.course_name : ""}
-      </h3>
-      <h3 style={{ fontWeight: "light" }}>
-        Time: {moment(props.eventStart).format("h a")} -{" "}
-        {moment(props.eventEnd).format("h a")}{" "}
-      </h3>{" "}
-    </span>
-  );
-};
-
 class AddEventModal extends Component {
   state = {
     course_code: this.props.course_code,
@@ -27,10 +13,8 @@ class AddEventModal extends Component {
   };
 
   handleTitleChange = (title) => {
-    this.setState({
-      ...this.state,
-      course_code: title,
-    });
+    console.log(title);
+    this.setState({ ...this.state, course_code: title });
   };
 
   /**
@@ -38,14 +22,17 @@ class AddEventModal extends Component {
    */
   handleOk = () => {
     // console.log(this.state);
-    console.log(this.state, "handle OK of addeventmodal");
+    console.log(this.state);
     this.props.onOk(this.state);
-    console.log(
-      this.state.course_code,
-      this.state.start,
-      this.state.end,
-      "handle OK of addeventmodal"
-    );
+    console.log(this.state.course_code, this.state.start, this.state.end);
+    const detail = {
+      subCode: this.state.course_code,
+      startTime: this.state.start,
+      endTime: this.state.end,
+    };
+    axios.post("http://localhost:8000/api/bookSlot", detail).then((res) => {
+      console.log(res);
+    });
   };
   isMeetThreshold = (data, threshold) => {
     let flag = 0;
@@ -60,17 +47,27 @@ class AddEventModal extends Component {
   };
   render() {
     let data = this.props.clashes;
-    console.log("this.state of add event modal", this.props);
     return (
       <Modal
-        title={Modaltitle(this.props)}
+        title={
+          <span style={{ textAlign: "center" }}>
+            <h3 style={{ fontWeight: "bolder" }}>
+              {" "}
+              {this.props.present_subject
+                ? this.props.present_subject.course_name
+                : ""}
+            </h3>{" "}
+            <h3 style={{ fontWeight: "light" }}>
+              Time : {moment(this.props.eventStart).format("h a")} -{" "}
+              {moment(this.props.eventEnd).format("h a")}
+            </h3>
+          </span>
+        }
         visible={this.props.visible}
         onOk={() => this.handleOk()}
         onCancel={this.props.onCloseTab}
         width="70%"
-        style={{
-          fontFamily: "Ubuntu",
-        }}
+        style={{ fontFamily: "Ubuntu" }}
         footer={[
           <Button
             key="back"
@@ -78,8 +75,7 @@ class AddEventModal extends Component {
               this.props.onCancel(this.state.eventId);
             }}
           >
-            {" "}
-            {this.props.editMode ? "Delete" : "Cancel"}{" "}
+            {this.props.editMode ? "Delete" : "Cancel"}
           </Button>,
           <Button
             key="submit"
@@ -95,8 +91,7 @@ class AddEventModal extends Component {
               this.handleOk();
             }}
           >
-            {" "}
-            {this.props.editMode ? "Update Event" : "Add Event"}{" "}
+            {this.props.editMode ? "Update Event" : "Add Event"}
           </Button>,
         ]}
       >
@@ -111,7 +106,7 @@ class AddEventModal extends Component {
           eventId={this.props.eventId}
           present_subject={this.props.present_subject}
           data={data}
-        />{" "}
+        />
       </Modal>
     );
   }
