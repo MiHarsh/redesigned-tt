@@ -1,12 +1,14 @@
 const express = require("express");
 const path = require("path");
 const cors = require("cors");
+const bodyParser= require('body-parser');
 
 const app = express();
 require("dotenv").config();
 
 // Bodyparser middleware
 app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
 // database configs
@@ -40,6 +42,8 @@ app.set("db", db);
 // use routes
 app.use("/api/status", require("./routes/status"));
 app.use("/api/getFacultyTT", require("./routes/getFacultyTT"));
+app.use("/api/bookSlot" , require("./routes/bookSlots"));
+app.use("/api/cancelledSlot", require("./routes/cancelledSlots"));
 
 // serve static assets if we are in production
 if (process.env.NODE_ENV === "production") {
