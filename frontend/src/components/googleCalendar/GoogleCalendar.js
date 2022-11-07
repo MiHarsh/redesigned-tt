@@ -7,15 +7,18 @@ class GoogleCalendar extends Component {
     super (props);
 
     this.state = {
-      events: JSON.parse (localStorage.getItem ('events')) || {},
+      prof_details: JSON.parse(localStorage.getItem("professor_info")) || {},
+      events: JSON.parse(localStorage.getItem ('events28')) || {},
+      subjects:[]
     };
-
-    // saving data to the local storage
+    
+    // saving data to the local storag8
     window.addEventListener ('beforeunload', () => {
-      localStorage.setItem ('events', JSON.stringify (this.state.events));
+      localStorage.setItem ('events28', JSON.stringify (this.state.events));
     });
+  
   }
-
+ 
   /**
    * Add new event in the event list in the state
    * @param {Object} event - Event object
@@ -26,10 +29,12 @@ class GoogleCalendar extends Component {
    * }
   */
   addNewEvent = event => {
+   
     event = {
       ...event,
       id: CalendarEventHandler.generateId (event),
     };
+ //   console.log(event);
     this.setState (previousSate => ({
       events: CalendarEventHandler.add (previousSate.events, event),
     }));
@@ -46,12 +51,14 @@ class GoogleCalendar extends Component {
    * }
   */
   updateEvent = (eventId, updatedEvent) => {
+   let updated = {...updatedEvent}
     this.setState (previousState => {
       return {
         events: CalendarEventHandler.update (
           eventId,
-          updatedEvent,
+          updated,
           previousState.events
+          
         ),
       };
     });
@@ -68,12 +75,24 @@ class GoogleCalendar extends Component {
       };
     });
   };
-
+  getSubjects = () =>{
+  //  axios.get('url').then((res)=>{
+  //   this.setState({...this.state,subjects:res});
+  //  })
+  const subjects = [{course_code:"MCD501",course_name:"Mathematics and Computing",prof:"hello"},{course_code:"DFG103",course_name:"HIFI",prof:"iam back"},{course_code:"MNE302",course_name:"mining",prof:"ram charan"}]
+  this.setState({...this.state,subjects});
+  }
+ componentDidMount(){
+   // request the subjects or get subjects by some method
+   // the below method is for manual testing
+    this.getSubjects();
+ }
   render () {
-    const {events} = this.state;
+    const {events,subjects} = this.state;
     return (
       <WeekView
         events={events}
+        subjects ={subjects}
         onNewEvent={this.addNewEvent}
         onEventUpdate={this.updateEvent}
         onEventDelete={this.deleteEvent}

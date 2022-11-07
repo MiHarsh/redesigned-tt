@@ -9,3 +9,14 @@ body {
 .anticon.anticon-cross-circle.ant-calendar-picker-clear {
   display: none;
 }
+.ant-modal-body {
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+.ant-modal-header {
+  padding-bottom: 5px;
+}
+.ant-table-pagination.ant-pagination {
+  margin-top: 10px;
+  margin-bottom: 3px;
+}
