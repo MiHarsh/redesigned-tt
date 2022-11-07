@@ -79,7 +79,7 @@ class GoogleCalendar extends Component {
   //  axios.get('url').then((res)=>{
   //   this.setState({...this.state,subjects:res});
   //  })
-  const subjects = [{course_code:"MCD501",course_name:"Mathematics and Computing",prof:"hello"},{course_code:"DFG103",course_name:"HIFI",prof:"iam back"},{course_code:"MNE302",course_name:"mining",prof:"ram charan"}]
+  const subjects = [{course_code:"MCD541",course_name:"Mathematics and Computing",prof:"hello"},{course_code:"DFG103",course_name:"HIFI",prof:"iam back"},{course_code:"MNE302",course_name:"mining",prof:"ram charan"}]
   this.setState({...this.state,subjects});
   }
  componentDidMount(){
