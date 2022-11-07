@@ -3,7 +3,7 @@ import moment from 'moment';
 import AddEventModal from './AddEventModal';
 import {generateWeekViewCoordinates} from '../../utils';
 import {eventHighlighter} from '../styles';
-
+import uniqid from "uniqid";
 class EventHighlighter extends Component {
   state = {
     showEditEventModal: false,
@@ -26,6 +26,7 @@ class EventHighlighter extends Component {
    * @param {string} title - Updated title of the event
    */
   updateEvent = title => {
+   // console.log(title);
     this.props.onEventUpdate (this.props.event.id, {
       title,
       start: this.state.eventNewStart,
@@ -40,11 +41,11 @@ class EventHighlighter extends Component {
    * Open the edit event modal and initializes the start and end time
    */
   openEditEventModal = () => {
-    console.log (this.props.event.title);
+    console.log(this.props.event[0]);
+    this.props.setTitle(this.props.event[0]);
     this.setState ({
-      showEditEventModal: true,
-      eventNewStart: this.props.event.start,
-      eventNewEnd: this.props.event.end,
+      eventNewStart: this.props.event[0].start,
+      eventNewEnd: this.props.event[0].end,
     });
   };
 
@@ -55,6 +56,7 @@ class EventHighlighter extends Component {
   onCurrentEventTimeChange = dates => {
     console.log ('called');
     this.setState ({
+      ...this.state,
       eventNewStart: +dates[0],
       eventNewEnd: +dates[1],
     });
@@ -70,21 +72,13 @@ class EventHighlighter extends Component {
   };
 
   render () {
-    const {showEditEventModal, eventNewStart, eventNewEnd} = this.state;
+  // if(this.props.event) console.log(this.props);
+ // if(this.props.event && console.log(this.props.event[0])){}
+
     return (
       <React.Fragment>
-        <AddEventModal
-          editMode={true}
-          eventTitle={this.props.event.title}
-          visible={showEditEventModal}
-          onCancel={this.deleteEvent}
-          onClose={this.closeModal}
-          onOk={this.updateEvent}
-          eventStart={eventNewStart}
-          eventEnd={eventNewEnd}
-          onTimeChange={this.onCurrentEventTimeChange}
-        />
         <div
+        key={uniqid()}
           onClick={this.openEditEventModal}
           style={{
             ...generateWeekViewCoordinates (
@@ -94,13 +88,13 @@ class EventHighlighter extends Component {
             ...eventHighlighter,
           }}
         >
-          {this.props.event.title} <br />
-          <span style={{fontSize: 10}}>
-            {moment (this.props.event.start).format ('hh:mm a')}
+          {this.props.event[0].course_code} <br />
+          <span style={{fontSize: 9.7}}>
+            {moment (Number(this.props.event[0].start)).format ('hh:mm a')}
             {' '}
             -
             {' '}
-            {moment (this.props.event.end).format ('hh:mm a')}
+            {moment (Number(this.props.event[0].end)).format ('hh:mm a')}
           </span>
         </div>
       </React.Fragment>
