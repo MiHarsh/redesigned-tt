@@ -1,17 +1,16 @@
 export const col = {
-  border: '#e0e0e0 2px solid',
-  width:"80px"
+  border: '#e0e0e0 1px solid',
 };
 export const weekDays = {
-  height: 60,
+  height: 100,
 };
 
 export const weekDayName = {
   fontSize: 12,
+  lineHeight: '32px',
   textTransform: 'capitalize',
   color: '#757575',
   marginLeft: 10,
-  marginBottom:0
 };
 
 export const container = {
@@ -21,21 +20,21 @@ export const container = {
 };
 
 export const weekDates = {
-  fontSize: 25,
+  fontSize: 40,
+  lineHeight: '12px',
   color: '#9e9e9e',
   marginLeft: 10,
 };
 
 export const slot = {
-  height: 60,
+  height: 40,
   cursor: 'pointer',
 };
 export const timeCol = {
-  border:'2px solid  rbg(224,224,224)',
   fontSize: 10,
   color: '#212121',
   textAlign: 'right',
-  padding: 6
+  padding: 6,
 };
 
 export const timeString = {
@@ -91,15 +90,12 @@ export const lightHighlighter = {
 
 export const eventHighlighter = {
   position: 'absolute',
-
- backgroundColor:'#08C18F',
+  backgroundColor: '#b3e1f7',
   border: '1px solid #81cdf2',
   borderRadius: '4px',
   color: 'white',
-  padding: '1px 4px',
+  padding: '2px 4px',
   fontSize: '12px',
   zIndex: 1,
   cursor: 'pointer',
-  width:80,
-  height:61
 };
