@@ -174,15 +174,15 @@ class WeekView extends Component {
    * Closes the add event modal
    */
   onCloseAddEventModal = (eventx) => {
-    console.log(this.state,"jdshfuh");
+    console.log(this.state, "jdshfuh");
     const detail = {
       subCode: this.state.subjectInfo.course_code,
       startTime: this.state.eventStart,
       endTime: this.state.eventEnd,
     };
-    axios.post("http://localhost:8000/api/cancelledSlot", detail).then((res) => {
-      console.log(res);
-    });
+    // axios.post("http://localhost:8000/api/cancelledSlot", detail).then((res) => {
+    //   console.log(res);
+    // });
     if (this.state.editMode) {
       this.props.onEventDelete(eventx);
       this.setState({
@@ -217,6 +217,7 @@ class WeekView extends Component {
     let st = this.state.eventStart;
     let end = this.state.eventEnd;
     let flag = 1;
+
     let dx = Object.keys(final_events);
     for (let j = 0; j < dx.length; j++) {
       for (let i = 0; i < final_events[dx[j]].length; i++) {
@@ -414,7 +415,7 @@ class WeekView extends Component {
   render() {
     const { weekDays, showAddEventModal, eventStart, eventEnd, startDate } =
       this.state;
-    const { subjects } = this.props;
+    const { subjects, events } = this.props;
 
     return (
       <div
@@ -508,9 +509,10 @@ class WeekView extends Component {
                   weekDays={weekDays}
                   time={times}
                   setTitle={this.setTitle}
-                  events={
-                    this.state.final_events ? this.state.final_events[z] : []
-                  }
+                  events={this.props.events ? this.props.events[z] : []}
+                  // events={
+                  //   this.state.events ? this.state.final_events[z] : []
+                  // }
                   dateStamp={z}
                   openAddEventModal={this.openAddEventModal}
                   onEventDelete={this.props.onEventDelete}

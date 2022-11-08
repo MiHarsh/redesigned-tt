@@ -30,9 +30,9 @@ class AddEventModal extends Component {
       startTime: this.state.start,
       endTime: this.state.end,
     };
-    axios.post("http://localhost:8000/api/bookSlot", detail).then((res) => {
-      console.log(res);
-    });
+    // axios.post("http://localhost:8000/api/bookSlot", detail).then((res) => {
+    //   console.log(res);
+    // });
   };
   isMeetThreshold = (data, threshold) => {
     let flag = 0;

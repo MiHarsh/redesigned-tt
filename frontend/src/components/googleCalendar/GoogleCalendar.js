@@ -28,6 +28,7 @@ class GoogleCalendar extends Component {
    * }
    */
   addNewEvent = (event) => {
+    console.log("new event receieved to be added", event);
     event = {
       ...event,
       id: CalendarEventHandler.generateId(event),
@@ -87,6 +88,10 @@ class GoogleCalendar extends Component {
     ];
     this.setState({ ...this.state, subjects });
   };
+  componentDidUpdate(prevProps, snapshot) {
+    console.log(prevProps, "these are before update", snapshot);
+  }
+
   componentDidMount() {
     // request the subjects or get subjects by some method
     // the below method is for manual testing
