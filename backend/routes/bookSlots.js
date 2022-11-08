@@ -1,31 +1,20 @@
 const express = require("express");
 const router = express.Router();
+const moment = require("moment");
 
 router.post("/", (req, res) => {
   const weekday = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
   //new Slot entry
-  d = new Date(req.body.startTime);
-  start_time =
-    (d.getHours() % 12 || 12) +
-    ":" +
-    d.getMinutes() +
-    (d.getMinutes() < 10 ? +"0" : "");
-  e = new Date(req.body.endTime);
-  end_time =
-    (e.getHours() % 12 || 12) +
-    ":" +
-    e.getMinutes() +
-    (e.getMinutes() < 10 ? +"0" : "");
-  month = d.getMonth() + 1;
-  year = d.getFullYear();
-  date = d.getDate();
+  let momStart = moment(Number(req.body.startTime));
+  let start_time = momStart.format("hh:mm");
+  let momEnd = moment(Number(req.body.endTime));
+  let end_time = momEnd.format("hh:mm");
 
   newSlot = {
-    date: year + "-" + month + "-" + date,
-    dtcode: weekday[d.getDay()] + "-" + start_time.substring(0, 5),
+    date: momStart.format("YYYY-MM-DD"),
+    dtcode: weekday[momStart.day()] + "-" + start_time,
     time: start_time + "-" + end_time,
   };
-  console.log(newSlot);
 
   req.app
     .get("db")
@@ -36,36 +25,18 @@ router.post("/", (req, res) => {
         res.json({ error: "Subject Code not found" });
       } else {
         let sub_details = snapshot.val();
-        //console.log(sub_details.booked_slots);
-        let slot = [];
+        let booked = [];
 
-        if (
-          sub_details.booked_slots != "" &&
-          year in sub_details.booked_slots &&
-          month in sub_details.booked_slots[year] &&
-          date in sub_details.booked_slots[year][month]
-        ) {
-          for (element in sub_details.booked_slots[year][month][date]) {
-            slot.push(sub_details.booked_slots[year][month][date][element]);
-          }
-          slot[slot.length] = newSlot;
-        } else {
-          slot = [newSlot];
+        if (sub_details.booked_slots && sub_details.booked_slots != "") {
+          booked = sub_details.booked_slots;
         }
+
+        booked.push(newSlot);
 
         req.app
           .get("db")
-          .ref(
-            "courseDetails/" +
-              req.body.subCode +
-              "/booked_slots/" +
-              year +
-              "/" +
-              month +
-              "/" +
-              date
-          )
-          .set(slot)
+          .ref("courseDetails/" + req.body.subCode + "/booked_slots")
+          .set(booked)
           .then(() => {
             res.json({ message: "write successful" });
           })

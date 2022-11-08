@@ -1,7 +1,7 @@
 const express = require("express");
 const path = require("path");
 const cors = require("cors");
-const bodyParser= require('body-parser');
+const bodyParser = require("body-parser");
 
 const app = express();
 require("dotenv").config();
@@ -42,8 +42,9 @@ app.set("db", db);
 // use routes
 app.use("/api/status", require("./routes/status"));
 app.use("/api/getFacultyTT", require("./routes/getFacultyTT"));
-app.use("/api/bookSlot" , require("./routes/bookSlots"));
+app.use("/api/bookSlot", require("./routes/bookSlots"));
 app.use("/api/cancelledSlot", require("./routes/cancelledSlots"));
+app.use("/api/getFacultyCD", require("./routes/getFacultyCD"));
 
 // serve static assets if we are in production
 if (process.env.NODE_ENV === "production") {

@@ -29,6 +29,8 @@ class WeekView extends Component {
     isTeacherClash: false,
     events: this.props.events,
     selectedEvent: null,
+    showClashes: false,
+    mytimetable: [],
   };
 
   /**
@@ -315,7 +317,7 @@ class WeekView extends Component {
       });
   };
   changeTimeTable = (e) => {
-    if (e.target.value == "none") {
+    if (e.target.value === "none") {
       let temp_events = {};
       temp_events = this.props.events;
       this.setState({
@@ -405,7 +407,105 @@ class WeekView extends Component {
       });
     }
   };
+
+  onchangeTimeTable = (e) => {
+    if (e.target.value === "none") {
+      let temp_events = {};
+      temp_events = this.props.events;
+      this.setState({
+        ...this.state,
+        subjectInfo: null,
+        subjectClashes: null,
+        showAddEventModal: false,
+        final_events: temp_events,
+        showClashes: false,
+      });
+    } else {
+      let events = {};
+      let final_events = {};
+      if (this.state.events) {
+        final_events = JSON.parse(JSON.stringify(this.state.events));
+      }
+
+      const subjects = this.props.subjects;
+      let subject = {
+        course_code: e.target.value,
+        course_name: "",
+      };
+      for (let i = 0; i < subjects.length; i++) {
+        if (subjects[i].course_code == e.target.value) {
+          subject = subjects[i];
+          break;
+        }
+      }
+      // const clashes = [
+      //   {
+      //     course_code: "ADV302",
+      //     course_name: "Advance",
+      //     clashed_count: 30,
+      //     instructor_email: "gajulapallyabhilash@gmail.com",
+      //     instructor_id: "AD105",
+      //     start: "1667727000000",
+      //     end: "1667730600000",
+      //     prof: "Allu Arjun",
+      //     isemailSent: false,
+      //   },
+      //   {
+      //     course_code: "AI402",
+      //     course_name: "AI",
+      //     clashed_count: 3,
+      //     instructor_email: "gajulapallyabhilash@gmail.com",
+      //     instructor_id: "AI501",
+      //     start: "1667737800000",
+      //     end: "1667741400000",
+      //     prof: "Prabhas",
+      //     isemailSent: false,
+      //   },
+      //   {
+      //     course_code: "MLO302",
+      //     course_name: "Machine Learning",
+      //     clashed_count: 3,
+      //     instructor_email: "gajulapallyabhilash@gmail.com",
+      //     instructor_id: "AD105",
+      //     start: "1667986200000",
+      //     end: "1667989800000",
+      //     prof: "NTR",
+      //     isemailSent: false,
+      //   },
+      // ];
+      // if (clashes.length) {
+      //   for (let i = 0; i < clashes.length; i++) {
+      //     let x = String(moment(Number(clashes[i].start)).dayOfYear());
+      //     let y = String(moment(Number(clashes[i].start)).year());
+      //     if (clashes[i].course_code != subject.course_code)
+      //       clashes[i].clashed = true;
+      //     if (!final_events[y + x]) {
+      //       final_events[y + x] = [];
+      //     }
+      //     final_events[y + x].push(clashes[i]);
+      //   }
+      // }
+      if (!this.props.clashes[e.target.value]) {
+        console.log("fetching server");
+      }
+
+      this.setState({
+        ...this.state,
+        final_events: final_events,
+        subjectInfo: subject,
+        showAddEventModal: false,
+        // clashes: clashes,
+        showClashes: true,
+      });
+    }
+  };
+
   componentDidMount() {
+    // this.setState((prev) => ({
+    //   ...prev,
+    //   mytimetable: +mytimetable,
+    // }));
+
     this.setState({
       ...this.state,
       final_events: this.props.events,
@@ -415,7 +515,7 @@ class WeekView extends Component {
   render() {
     const { weekDays, showAddEventModal, eventStart, eventEnd, startDate } =
       this.state;
-    const { subjects, events } = this.props;
+    const { subjects, events, clashes, setClashes } = this.props;
 
     return (
       <div
@@ -424,12 +524,7 @@ class WeekView extends Component {
           paddingTop: "0px",
         }}
       >
-        <div
-          style={{
-            display: "flex",
-            paddingLeft: "40%",
-          }}
-        >
+        <div style={{ display: "flex", paddingLeft: "40%" }}>
           <h3
             style={{
               fontFamily: "Ubuntu",
@@ -437,8 +532,8 @@ class WeekView extends Component {
               textAlign: "center",
             }}
           >
-            Monsoon Semester Time Table{" "}
-          </h3>{" "}
+            Monsoon Semester Time Table
+          </h3>
           <select
             className="form-select"
             style={{
@@ -452,7 +547,7 @@ class WeekView extends Component {
               marginTop: "0rem",
             }}
             onChange={(e) => {
-              this.changeTimeTable(e);
+              this.onchangeTimeTable(e);
             }}
           >
             <option value="none"> Subject </option>{" "}
@@ -460,13 +555,12 @@ class WeekView extends Component {
               subjects.map((sub) => {
                 return (
                   <option key={sub.course_code} value={sub.course_code}>
-                    {" "}
-                    {sub.course_name}{" "}
+                    {sub.course_name}
                   </option>
                 );
-              })}{" "}
-          </select>{" "}
-        </div>{" "}
+              })}
+          </select>
+        </div>
         <div style={{}}>
           <AddEventModal
             key={uniqid()}
@@ -498,29 +592,73 @@ class WeekView extends Component {
           />{" "}
           <div key={uniqid()}>
             <TimeHeader times={times} />{" "}
-            {weekDays.map((day) => {
-              const x1 = moment(day.dateStamp).year();
-              const y = moment(day.dateStamp).dayOfYear();
-              const z = String(x1) + String(y);
-              return (
-                <WeakSlotGroup
-                  key={uniqid()}
-                  day={day}
-                  weekDays={weekDays}
-                  time={times}
-                  setTitle={this.setTitle}
-                  events={this.props.events ? this.props.events[z] : []}
-                  // events={
-                  //   this.state.events ? this.state.final_events[z] : []
-                  // }
-                  dateStamp={z}
-                  openAddEventModal={this.openAddEventModal}
-                  onEventDelete={this.props.onEventDelete}
-                  onEventUpdate={this.props.onEventUpdate}
-                  subjects={this.props.subjects}
-                />
-              );
-            })}{" "}
+            {this.props.mytimetable
+              ? weekDays.map((day) => {
+                  const x1 = moment(day.dateStamp).year();
+                  const y = moment(day.dateStamp).dayOfYear();
+                  const z = String(x1) + String(y);
+
+                  const generalttbyDay =
+                    this.props.mytimetable[day.weekDayName];
+                  console.log(day, generalttbyDay, "hi");
+                  let mytime = [];
+                  for (let i = 0; i < generalttbyDay.length; i++) {
+                    let data = generalttbyDay[i];
+                    let date = moment(day.dateStamp).format("YYYY-MM-DD");
+                    console.log(
+                      moment(day.dateStamp).format("YYYY-MM-DD"),
+                      "momentdate",
+                      moment("2016-10-11 10:00").valueOf()
+                    );
+
+                    let start = new Date(date + " " + data.time.split("-")[0]);
+                    if (start.getHours() < 8) {
+                      start = start.setHours(start.getHours() + 12);
+                    } else {
+                      start = start.getTime();
+                    }
+
+                    data.start = start;
+                    data.end = start + 50 * 60 * 1000;
+                    data.eventId = data.start + data.course_code + data.end;
+                    data.id = data.eventId;
+                    data.startWeek = moment(start).week();
+                    data.endWeek = moment(start).week();
+                    mytime.push(data);
+                  }
+
+                  console.log(mytime, "mutime", day.date);
+
+                  return (
+                    <WeakSlotGroup
+                      key={uniqid()}
+                      day={day}
+                      weekDays={weekDays}
+                      time={times}
+                      setTitle={this.setTitle}
+                      mytimetable={mytime}
+                      events={this.props.events ? this.props.events[z] : []}
+                      extraclass={[]}
+                      cancelledSlots={{ abcd: 1 }}
+                      clashes={
+                        this.state.showClashes &&
+                        clashes[this.state.subjectInfo.course_code] &&
+                        clashes[this.state.subjectInfo.course_code][z]
+                          ? clashes[this.state.subjectInfo.course_code][z]
+                          : []
+                      }
+                      // events={
+                      //   this.state.events ? this.state.final_events[z] : []
+                      // }
+                      dateStamp={z}
+                      openAddEventModal={this.openAddEventModal}
+                      onEventDelete={this.props.onEventDelete}
+                      onEventUpdate={this.props.onEventUpdate}
+                      subjects={this.props.subjects}
+                    />
+                  );
+                })
+              : null}{" "}
           </div>{" "}
         </div>{" "}
       </div>
