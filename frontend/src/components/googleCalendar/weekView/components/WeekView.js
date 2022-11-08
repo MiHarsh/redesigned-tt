@@ -65,6 +65,8 @@ class WeekView extends Component {
     });
   };
   onheadingChange = (title) => {
+    console.log("On heading change called!")
+
     this.setState({
       ...this.state,
       course_code: title,
@@ -78,10 +80,10 @@ class WeekView extends Component {
   openAddEventModal = (dateStamp, eventx, starttime, endtime) => {
     const start = moment(dateStamp).set("hour", starttime);
     const end = moment(dateStamp).set("hour", endtime);
-    console.log(start.valueOf());
-    console.log(end.valueOf());
+    console.log("Start: ", start.valueOf());
+    console.log("End: ", end.valueOf());
     // console.log(start,end);
-    console.log(eventx);
+    console.log("Eventx: ", eventx);
     if (!this.state.subjectInfo) {
       return;
     }
@@ -134,6 +136,7 @@ class WeekView extends Component {
       for (let i = 0; i < eventx.length; i++) {
         for (let j = 0; j < this.props.subjects.length; j++) {
           console.log(
+            "Inside somewhere: ",
             eventx[i].course_code,
             this.props.subjects[j].course_code
           );
@@ -176,7 +179,7 @@ class WeekView extends Component {
    * Closes the add event modal
    */
   onCloseAddEventModal = (eventx) => {
-    console.log(this.state, "jdshfuh");
+    console.log("onCloseAddEventModal: ", this.state);
     const detail = {
       subCode: this.state.subjectInfo.course_code,
       startTime: this.state.eventStart,
