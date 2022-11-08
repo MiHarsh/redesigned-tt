@@ -176,17 +176,20 @@ class WeekView extends Component {
    * Closes the add event modal
    */
   onCloseAddEventModal = (eventx) => {
-    console.log(this.state, "jdshfuh");
-    const detail = {
-      subCode: this.state.subjectInfo.course_code,
-      startTime: this.state.eventStart,
-      endTime: this.state.eventEnd,
-    };
-    // axios.post("http://localhost:8000/api/cancelledSlot", detail).then((res) => {
-    //   console.log(res);
-    // });
     if (this.state.editMode) {
       this.props.onEventDelete(eventx);
+      const detail = {
+        subCode: this.state.subjectInfo.course_code,
+        startTime: this.state.eventStart,
+        endTime: this.state.eventEnd,
+      };
+      axios
+        .post("http://localhost:5000/api/cancelledSlot", detail)
+        .then((res) => {
+          console.log(res);
+        });
+      console.log("deleting from onClose Add", eventx);
+      this.props.onClassDelete(eventx.slice(0, 19), "empty");
       this.setState({
         ...this.state,
         course_code: "",
@@ -579,6 +582,7 @@ class WeekView extends Component {
             onTimeChange={this.onCurrentEventTimeChange}
             clashes={this.state.clashes}
             onEventDelete={this.props.onEventDelete}
+            onClassDelete={this.props.onClassDelete}
             onEventUpdate={this.props.onEventUpdate}
             subjects={subjects}
             present_subject={this.state.subjectInfo}
@@ -597,19 +601,28 @@ class WeekView extends Component {
                   const x1 = moment(day.dateStamp).year();
                   const y = moment(day.dateStamp).dayOfYear();
                   const z = String(x1) + String(y);
+                  let mytime = [];
+
+                  // add extra class to mytime
+                  for (let ec = 0; ec < this.props.extraclass; ec++) {
+                    let classdetails = this.props.extraclass[ec];
+                    if (
+                      day.dateStamp === classdetails.start &&
+                      !(
+                        classdetails.id.slice(0, 19) in
+                        this.props.cancelledclass
+                      )
+                    ) {
+                      mytime.push(classdetails);
+                    }
+                  }
 
                   const generalttbyDay =
                     this.props.mytimetable[day.weekDayName];
-                  console.log(day, generalttbyDay, "hi");
-                  let mytime = [];
+
                   for (let i = 0; i < generalttbyDay.length; i++) {
                     let data = generalttbyDay[i];
                     let date = moment(day.dateStamp).format("YYYY-MM-DD");
-                    console.log(
-                      moment(day.dateStamp).format("YYYY-MM-DD"),
-                      "momentdate",
-                      moment("2016-10-11 10:00").valueOf()
-                    );
 
                     let start = new Date(date + " " + data.time.split("-")[0]);
                     if (start.getHours() < 8) {
@@ -624,7 +637,16 @@ class WeekView extends Component {
                     data.id = data.eventId;
                     data.startWeek = moment(start).week();
                     data.endWeek = moment(start).week();
-                    mytime.push(data);
+                    if (
+                      !(
+                        String(start) + data.course_code in
+                        this.props.cancelledclass
+                      )
+                    ) {
+                      mytime.push(data);
+                    } else {
+                      console.log("class was cancelled", data);
+                    }
                   }
 
                   console.log(mytime, "mutime", day.date);
@@ -638,7 +660,7 @@ class WeekView extends Component {
                       setTitle={this.setTitle}
                       mytimetable={mytime}
                       events={this.props.events ? this.props.events[z] : []}
-                      extraclass={[]}
+                      extraclass={this.props.extraclass}
                       cancelledSlots={{ abcd: 1 }}
                       clashes={
                         this.state.showClashes &&
@@ -653,6 +675,7 @@ class WeekView extends Component {
                       dateStamp={z}
                       openAddEventModal={this.openAddEventModal}
                       onEventDelete={this.props.onEventDelete}
+                      onClassDelete={this.props.onClassDelete}
                       onEventUpdate={this.props.onEventUpdate}
                       subjects={this.props.subjects}
                     />

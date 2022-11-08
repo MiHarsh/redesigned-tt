@@ -41,7 +41,7 @@ class GoogleCalendar extends Component {
         Sat: [],
       },
       extraclass: [],
-      cancelledclass: [],
+      cancelledclass: {},
     };
 
     // saving data to the local storag8
@@ -112,6 +112,17 @@ class GoogleCalendar extends Component {
       };
     });
   };
+
+  deleteClass = (classID, course_name) => {
+    console.log(classID, course_name, "cancelling");
+    let cancel = { ...this.state.cancelledclass };
+    cancel[classID] = course_name;
+    this.setState((prev) => ({
+      ...prev,
+      cancelledclass: cancel,
+    }));
+  };
+
   getSubjects = () => {
     //  axios.get('url').then((res)=>{
     //   this.setState({...this.state,subjects:res});
@@ -129,32 +140,6 @@ class GoogleCalendar extends Component {
         alias: usermail,
       })
       .then((response) => {
-        // let newtt = {
-        //   Sun: [],
-        //   Mon: [],
-        //   Tue: [],
-        //   Wed: [],
-        //   Thu: [],
-        //   Fri: [],
-        //   Sat: [],
-        // };
-        // weekDay.map((day) => {
-        //   const generalttbyDay = response.data.generalclass[day.weekDayName];
-        //   console.log(day, generalttbyDay, "hi");
-        //   let mytime = [];
-        //   for (let i = 0; i < generalttbyDay.length; i++) {
-        //     let data = generalttbyDay[i];
-        //     data.start = day.dateStamp;
-        //     data.end = day.dateStamp + 50 * 60 * 1000;
-        //     data.eventId = day.dateStamp + data.course_code + data.end;
-        //     data.id = data.eventId;
-        //     data.startWeek = moment(day.dateStamp).week();
-        //     data.endWeek = moment(data.end).week();
-        //     mytime.push(data);
-        //   }
-        //   newtt[day.weekDayName].push(mytime);
-        // });
-
         this.setState((prev) => ({
           ...prev,
           subjects: response.data.courseOffering,
@@ -197,6 +182,7 @@ class GoogleCalendar extends Component {
         onNewEvent={this.addNewEvent}
         onEventUpdate={this.updateEvent}
         onEventDelete={this.deleteEvent}
+        onClassDelete={this.deleteClass}
       />
     );
   }

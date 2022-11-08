@@ -55,7 +55,7 @@ router.post("/", (req, res) => {
 
                   for (let j = 0; j < class_obj.booked_slots.length; j++) {
                     let ecOb = class_obj.booked_slots[j];
-                    console.log(ecOb);
+                 
                     let start = new Date(
                       ecOb.date + " " + ecOb.time.split("-")[0]
                     );
