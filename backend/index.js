@@ -45,6 +45,8 @@ app.use("/api/getFacultyTT", require("./routes/getFacultyTT"));
 app.use("/api/bookSlot", require("./routes/bookSlots"));
 app.use("/api/cancelledSlot", require("./routes/cancelledSlots"));
 app.use("/api/getFacultyCD", require("./routes/getFacultyCD"));
+app.use("/api/getCourseStudentsTimeTable", require("./routes/getCourseStudentsTimeTable"))
+app.use("/api/generateStudentAllotedCourses", require("./routes/generateStudentAllotedCourses"))
 
 // serve static assets if we are in production
 if (process.env.NODE_ENV === "production") {

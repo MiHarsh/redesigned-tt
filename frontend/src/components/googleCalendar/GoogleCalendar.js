@@ -67,14 +67,14 @@ class GoogleCalendar extends Component {
    * }
    */
   addNewEvent = (event) => {
-    console.log("new event receieved to be added", event);
+    console.log("Request to add event: ", event);
     event = {
       ...event,
       id: CalendarEventHandler.generateId(event),
     };
     //   console.log(event);
-    this.setState((previousSate) => ({
-      events: CalendarEventHandler.add(previousSate.events, event),
+    this.setState((previousState) => ({
+      events: CalendarEventHandler.add(previousState.events, event),
     }));
   };
 
@@ -147,11 +147,13 @@ class GoogleCalendar extends Component {
           extraclass: response.data.extraclass,
           cancelledclass: response.data.cancelledSlots,
         }));
-        console.log(response.data);
+
+        console.log("Response data from getSubjects: ", response.data);
       });
   };
+
   componentDidUpdate(prevProps, snapshot) {
-    console.log(prevProps, "these are before update", snapshot);
+    console.log(prevProps, " these are before update ", snapshot);
   }
 
   componentDidMount() {
@@ -168,7 +170,7 @@ class GoogleCalendar extends Component {
       extraclass,
       cancelledclass,
     } = this.state;
-    console.log(this.props.currentUser);
+    console.log("Props before render: "this.props.currentUser);
 
     return (
       <WeekView
