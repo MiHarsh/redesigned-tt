@@ -47,6 +47,7 @@ class AddEventModal extends Component {
   };
   render() {
     let data = this.props.clashes;
+    console.log(data, "props.clashes");
     return (
       <Modal
         title={
@@ -80,13 +81,13 @@ class AddEventModal extends Component {
           <Button
             key="submit"
             type="primary"
-            disabled={
-              this.props.isTeacherClash ||
-              (this.props.isSubjectClash &&
-                this.isMeetThreshold(data, threshold))
-                ? "disabled"
-                : ""
-            }
+            // disabled={
+            //   this.props.isTeacherClash ||
+            //   (this.props.isSubjectClash &&
+            //     this.isMeetThreshold(data, threshold))
+            //     ? "disabled"
+            //     : ""
+            // }
             onClick={() => {
               this.handleOk();
             }}
@@ -105,7 +106,7 @@ class AddEventModal extends Component {
           subjects={this.props.subjects}
           eventId={this.props.eventId}
           present_subject={this.props.present_subject}
-          data={data}
+          data={this.props.clashes}
         />
       </Modal>
     );

@@ -8,24 +8,21 @@ import uniqid from "uniqid";
 
 function TimeSlot(props) {
   const { event, startDate } = props;
+  console.log("inside timeslot", event, "prev is event");
   //  if(Object.keys(event).length){console.log(event);}
   // if(event.length){
   //   event.map((eve)=>{console.log(moment(eve).dayOfYear())})
   // }
   // if(event.clashed)console.log(event);
   const isTeacherSubjectPresent = (events) => {
+    console.log("events is teacher", events, props, events.length === 0);
     let flag = -1;
-    if (events.length == 0) {
+    if (events.length === 0) {
       return {
         course_code: "ABHI",
       };
     }
-    // console.log(events);
-    for (let i = 0; i < events.length; i++) {
-      for (let j = 0; j < props.subjects.length; j++) {
-        //if( events[i].course_code==props.subjects[i].course_code){flag=i;break;}
-      }
-    }
+
     if (flag == -1) {
       return events[0];
     }

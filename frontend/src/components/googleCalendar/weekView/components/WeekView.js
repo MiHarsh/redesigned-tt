@@ -11,6 +11,139 @@ import TimeHeader from "./TimeHeader";
 import { times } from "../../utils";
 import CalendarEventHandler from "../../calendarEventHandler";
 
+const processMyTT = (mytimetable, day, cancelledclass) => {
+  let mytime = [];
+  const generalttbyDay = mytimetable[day.weekDayName];
+
+  for (let i = 0; i < generalttbyDay.length; i++) {
+    let data = generalttbyDay[i];
+    let date = moment(day.dateStamp).format("YYYY-MM-DD");
+
+    let start = new Date(date + " " + data.time.split("-")[0]);
+    if (start.getHours() < 8) {
+      start = start.setHours(start.getHours() + 12);
+    } else {
+      start = start.getTime();
+    }
+
+    data.start = start;
+    data.end = start + 50 * 60 * 1000;
+    data.eventId = data.start + data.course_code + data.end;
+    data.id = data.eventId;
+    data.startWeek = moment(start).week();
+    data.endWeek = moment(start).week();
+    if (!(String(start) + data.course_code in cancelledclass)) {
+      mytime.push(data);
+    } else {
+      console.log("class was cancelled", data);
+    }
+  }
+  return mytime;
+};
+
+const processMyEC = (extraclass, day, cancelledclass) => {
+  let mytime = [];
+  for (let ec = 0; ec < extraclass; ec++) {
+    let classdetails = extraclass[ec];
+    if (
+      day.dateStamp === classdetails.start &&
+      !(classdetails.id.slice(0, 19) in cancelledclass)
+    ) {
+      mytime.push(classdetails);
+    }
+  }
+  return mytime;
+};
+
+const processStudentTT = (studentdata, day) => {
+  let mytime = [];
+
+  // cancelled class data
+  const cancelledttbyDay =
+    studentdata.cancelledClasses[day.weekDayName.toLowerCase()];
+
+  // select from general class
+  const generalttbyDay =
+    studentdata.generalClasses[day.weekDayName.toLowerCase()];
+
+  for (const [key, value] of Object.entries(generalttbyDay)) {
+    let data = value;
+    let date = moment(day.dateStamp).format("YYYY-MM-DD");
+
+    let start = new Date(date + " " + key.split("-")[1]);
+    if (start.getHours() < 8) {
+      start = start.setHours(start.getHours() + 12);
+    } else {
+      start = start.getTime();
+    }
+    data.course_code = value.clash_counts;
+    data.course_name = value.clash_counts;
+    data.start = start;
+    data.end = start + 50 * 60 * 1000;
+    data.eventId = data.start + data.course_code + data.end;
+    data.id = data.eventId;
+    data.startWeek = moment(start).week();
+    data.endWeek = moment(start).week();
+
+    for (const [ckey, cvalue] of Object.entries(data.courses_details)) {
+      // ckey is course_code ;  cvalue is details of course
+
+      if (String(start) + ckey in cancelledttbyDay) {
+        console.log("class was cancelled, stud allloted course", data);
+        delete value.courses_details[ckey];
+        data.course_code -= cvalue.clashing_students;
+        data.clash_counts -= cvalue.clashing_students;
+      }
+    }
+
+    if (data.clash_counts > 0) {
+      mytime.push(data);
+    } else {
+      console.log("Sorry, no class left, all are cancelled");
+    }
+  }
+
+  // select from extra classes
+
+  const extrattbyDay = studentdata.extraClasses[day.weekDayName.toLowerCase()];
+
+  for (const [key, value] of Object.entries(extrattbyDay)) {
+    let start = new Date(value.date + " " + key.split("-")[1]);
+    if (start.getHours() < 8) {
+      start = start.setHours(start.getHours() + 12);
+    } else {
+      start = start.getTime();
+    }
+    value.course_code = value.clash_counts;
+    value.course_name = value.clash_counts;
+    value.start = start;
+    value.end = start + 50 * 60 * 1000;
+    value.eventId = value.start + value.course_code + value.end;
+    value.id = value.eventId;
+    value.startWeek = moment(start).week();
+    value.endWeek = moment(start).week();
+
+    for (const [ckey, cvalue] of Object.entries(value.courses_details)) {
+      // ckey is course_code ;  cvalue is details of course
+
+      if (String(start) + ckey in cancelledttbyDay) {
+        console.log("class was cancelled, stud allloted course", value);
+        delete value.courses_details[ckey];
+        value.course_code -= cvalue.clashing_students;
+        value.clash_counts -= cvalue.clashing_students;
+      }
+    }
+    // add only if any class is left, and day has arrived
+    if (value.clash_counts > 0 && day.dateStamp === start) {
+      mytime.push(value);
+    } else {
+      console.log("Sorry, no class left, all are cancelled");
+    }
+  }
+
+  return mytime;
+};
+
 class WeekView extends Component {
   state = {
     startDate: +moment(),
@@ -21,7 +154,7 @@ class WeekView extends Component {
     course_code: "",
     eventId: null,
     editMode: false,
-    clashes: null,
+    clashes: [],
     subjectInfo: null,
     subjectClashes: null,
     final_events: null,
@@ -31,6 +164,7 @@ class WeekView extends Component {
     selectedEvent: null,
     showClashes: false,
     mytimetable: [],
+    clashdata: [],
   };
 
   /**
@@ -65,7 +199,7 @@ class WeekView extends Component {
     });
   };
   onheadingChange = (title) => {
-    console.log("On heading change called!")
+    console.log("On heading change called!");
 
     this.setState({
       ...this.state,
@@ -84,6 +218,22 @@ class WeekView extends Component {
     console.log("End: ", end.valueOf());
     // console.log(start,end);
     console.log("Eventx: ", eventx);
+    if (eventx[0] && "courses_details" in eventx[0]) {
+      let cls = [];
+      for (const [key, value] of Object.entries(eventx[0]["courses_details"])) {
+        cls.push({
+          course_code: key,
+          ...value,
+        });
+      }
+      this.props.setClashes(cls);
+      // this.setState({ ...this.state, clashdata: eventx[0], abcd: cls });
+
+      console.log("clashes is set now", cls, eventx, this.state);
+    } else {
+      this.props.setClashes([]);
+    }
+
     if (!this.state.subjectInfo) {
       return;
     }
@@ -98,8 +248,11 @@ class WeekView extends Component {
         editMode: false,
         selectedEvent: eventx,
       });
-    } else if (this.state.subjectInfo && eventx.length == 1) {
-      if (eventx[0].course_code != this.state.subjectInfo.course_code) {
+    } else if (this.state.subjectInfo && eventx.length >= 1) {
+      if (
+        eventx[0] &&
+        eventx[0].course_code != this.state.subjectInfo.course_code
+      ) {
         let isTeacherClash = false;
         for (let i = 0; i < this.props.subjects.length; i++) {
           if (this.props.subjects[i].course_code == eventx[0].course_code) {
@@ -107,17 +260,41 @@ class WeekView extends Component {
             break;
           }
         }
-        this.setState({
-          ...this.state,
-          isBooked: true,
-          isTeacherClash: isTeacherClash,
-          showAddEventModal: true,
-          eventStart: +start,
-          eventEnd: +end,
-          editMode: false,
-          selectedEvent: eventx,
-          eventId: CalendarEventHandler.generateId(eventx),
-        });
+        // if the current course is one of user's course
+        // do not open any modal
+        let fl = 0;
+        for (let i = 0; i < this.props.subjects.length; i++) {
+          if (eventx[0].course_code === this.props.subjects[i].course_code) {
+            fl = 1;
+          }
+        }
+        console.log("fl is ", fl);
+        if (fl === 1) {
+          this.setState({
+            ...this.state,
+            isBooked: true,
+            isTeacherClash: isTeacherClash,
+            showAddEventModal: false,
+            eventStart: +start,
+            eventEnd: +end,
+            editMode: false,
+            selectedEvent: eventx,
+            eventId: CalendarEventHandler.generateId(eventx),
+          });
+        } else {
+          this.setState({
+            ...this.state,
+            isBooked: true,
+            isTeacherClash: isTeacherClash,
+            showAddEventModal: true,
+            eventStart: +start,
+            eventEnd: +end,
+            editMode: false,
+            selectedEvent: eventx,
+            eventId: CalendarEventHandler.generateId(eventx),
+          });
+        }
+        // if(eventx[0].course_code in )
       } else {
         this.setState({
           ...this.state,
@@ -221,6 +398,7 @@ class WeekView extends Component {
    * @param {string} title - Title of the new event
    */
   onOkAddEventModal = (event) => {
+    console.log("onOKAddEventModal", event);
     let final_events = this.state.final_events;
     let st = this.state.eventStart;
     let end = this.state.eventEnd;
@@ -491,9 +669,8 @@ class WeekView extends Component {
       //     final_events[y + x].push(clashes[i]);
       //   }
       // }
-      if (!this.props.clashes[e.target.value]) {
-        console.log("fetching server");
-      }
+
+      this.props.setSAC(e.target.value);
 
       this.setState({
         ...this.state,
@@ -522,6 +699,7 @@ class WeekView extends Component {
     const { weekDays, showAddEventModal, eventStart, eventEnd, startDate } =
       this.state;
     const { subjects, events, clashes, setClashes } = this.props;
+    console.log(this.props, "props of weekview");
 
     return (
       <div
@@ -583,7 +761,7 @@ class WeekView extends Component {
             eventId={this.state.eventId}
             isSubjectClash={this.state.isBooked}
             onTimeChange={this.onCurrentEventTimeChange}
-            clashes={this.state.clashes}
+            clashes={this.props.clashdata}
             onEventDelete={this.props.onEventDelete}
             onClassDelete={this.props.onClassDelete}
             onEventUpdate={this.props.onEventUpdate}
@@ -604,52 +782,38 @@ class WeekView extends Component {
                   const x1 = moment(day.dateStamp).year();
                   const y = moment(day.dateStamp).dayOfYear();
                   const z = String(x1) + String(y);
-                  let mytime = [];
 
-                  // add extra class to mytime
-                  for (let ec = 0; ec < this.props.extraclass; ec++) {
-                    let classdetails = this.props.extraclass[ec];
-                    if (
-                      day.dateStamp === classdetails.start &&
-                      !(
-                        classdetails.id.slice(0, 19) in
-                        this.props.cancelledclass
+                  // add extra class
+                  let mytime = processMyEC(
+                    this.props.extraclass,
+                    day,
+                    this.props.cancelledclass
+                  );
+
+                  // add general timetable
+                  mytime = mytime.concat(
+                    processMyTT(
+                      this.props.mytimetable,
+                      day,
+                      this.props.cancelledclass
+                    )
+                  );
+
+                  // add student allotted courses
+                  if (
+                    this.state.subjectInfo &&
+                    this.state.subjectInfo.course_code in
+                      this.props.studentAllottedCourses
+                  ) {
+                    mytime = mytime.concat(
+                      processStudentTT(
+                        this.props.studentAllottedCourses[
+                          this.state.subjectInfo.course_code
+                        ],
+                        day
                       )
-                    ) {
-                      mytime.push(classdetails);
-                    }
-                  }
-
-                  const generalttbyDay =
-                    this.props.mytimetable[day.weekDayName];
-
-                  for (let i = 0; i < generalttbyDay.length; i++) {
-                    let data = generalttbyDay[i];
-                    let date = moment(day.dateStamp).format("YYYY-MM-DD");
-
-                    let start = new Date(date + " " + data.time.split("-")[0]);
-                    if (start.getHours() < 8) {
-                      start = start.setHours(start.getHours() + 12);
-                    } else {
-                      start = start.getTime();
-                    }
-
-                    data.start = start;
-                    data.end = start + 50 * 60 * 1000;
-                    data.eventId = data.start + data.course_code + data.end;
-                    data.id = data.eventId;
-                    data.startWeek = moment(start).week();
-                    data.endWeek = moment(start).week();
-                    if (
-                      !(
-                        String(start) + data.course_code in
-                        this.props.cancelledclass
-                      )
-                    ) {
-                      mytime.push(data);
-                    } else {
-                      console.log("class was cancelled", data);
-                    }
+                    );
+                    console.log("process stud allot");
                   }
 
                   console.log(mytime, "mutime", day.date);

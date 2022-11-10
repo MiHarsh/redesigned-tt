@@ -14,6 +14,7 @@ class GoogleCalendar extends Component {
     this.state = {
       prof_details: JSON.parse(localStorage.getItem("professor_info")) || {},
       events: JSON.parse(localStorage.getItem("events28")) || {},
+      clashdata: {},
       clashes: {
         MCD501: {
           2022313: [
@@ -42,6 +43,7 @@ class GoogleCalendar extends Component {
       },
       extraclass: [],
       cancelledclass: {},
+      studentAllottedCourses: {},
     };
 
     // saving data to the local storag8
@@ -51,9 +53,10 @@ class GoogleCalendar extends Component {
   }
 
   updateClashes = (clash) => {
+    console.log("clash found", clash);
     this.setState((prevState) => ({
       ...prevState,
-      clashes: +clash,
+      clashdata: clash,
     }));
   };
 
@@ -123,6 +126,34 @@ class GoogleCalendar extends Component {
     }));
   };
 
+  getStudentAllotedCourses = (courseCode) => {
+    const usermail = "shikha";
+
+    // this.props.currentUser.email.split("@")[0];
+    console.log(usermail);
+
+    if (!(courseCode in this.state.studentAllottedCourses)) {
+      axios
+        .post("http://localhost:5000/api/getCourseStudentsTimeTable", {
+          alias: usermail,
+          subCode: courseCode,
+        })
+        .then((response) => {
+          let sac = this.state.studentAllottedCourses;
+          sac[courseCode] = response.data;
+          this.setState((prev) => ({
+            ...prev,
+            studentAllottedCourses: sac,
+          }));
+
+          console.log(
+            "sac data set for" + courseCode + "course",
+            response.data
+          );
+        });
+    }
+  };
+
   getSubjects = () => {
     //  axios.get('url').then((res)=>{
     //   this.setState({...this.state,subjects:res});
@@ -169,18 +200,22 @@ class GoogleCalendar extends Component {
       mytimetable,
       extraclass,
       cancelledclass,
+      studentAllottedCourses,
     } = this.state;
-    console.log("Props before render: "this.props.currentUser);
+    console.log("Props before render: ", this.props.currentUser);
 
     return (
       <WeekView
         events={events}
         clashes={clashes}
+        clashdata={this.state.clashdata}
         setClashes={this.updateClashes}
+        setSAC={this.getStudentAllotedCourses}
         subjects={subjects}
         mytimetable={mytimetable}
         extraclass={extraclass}
         cancelledclass={cancelledclass}
+        studentAllottedCourses={studentAllottedCourses}
         onNewEvent={this.addNewEvent}
         onEventUpdate={this.updateEvent}
         onEventDelete={this.deleteEvent}

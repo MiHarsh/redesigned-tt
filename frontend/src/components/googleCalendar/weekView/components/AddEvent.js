@@ -8,6 +8,7 @@ const { RangePicker } = DatePicker;
 // if the current slot is booked, booked slot view is rendered
 
 const AddEvent = (props) => {
+  console.log("on addevent, data of all the courses are present", props);
   return (
     <React.Fragment>
       {props.isBooked ? (

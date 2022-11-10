@@ -2,6 +2,7 @@ import { Table } from "antd";
 import React, { useState } from "react";
 
 export const BookedSlotView = (props) => {
+  console.log(props, "inside booked slot view");
   const columns = [
     {
       key: "course_code",
@@ -20,8 +21,8 @@ export const BookedSlotView = (props) => {
     },
     {
       key: "students",
-      title: "clashed_count",
-      dataIndex: "clashed_count",
+      title: "clashing students",
+      dataIndex: "clashing_students",
     },
     {
       key: "button",
