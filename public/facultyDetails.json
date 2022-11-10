@@ -1,19 +1,19 @@
 {
   "shikha": {
-    "name": "Harsh Mishra",
+    "name": "Shikha Singh",
     "dept": "ece",
     "phone_number": 9793221385,
     "mail_id": "harsh.19JE0353@ece.iitism.ac.in",
-    "courses_offering": ["CHC206", "CHC207"],
+    "courses_offering": ["MSC507", "MSO501"],
     "student_alloted_courses": {
-      "CHC206": {
+      "MSC507": {
         "CHC206": 3,
         "CHC207": 4,
         "CHC208": 5,
         "CHC209": 6,
         "CHC210": 8
       },
-      "CHC207": {
+      "MSO501": {
         "CHC206": 3,
         "CHC207": 4,
         "CHC208": 5,
