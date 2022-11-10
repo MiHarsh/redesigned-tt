@@ -64,6 +64,7 @@ function TimeSlot(props) {
       {event && event.length > 0 && event[0].course_name && (
         <EventHighlighter
           onEventDelete={props.onEventDelete}
+          onClassDelete={props.onClassDelete}
           onEventUpdate={props.onEventUpdate}
           setTitle={props.setTitle}
           key={y.title + y.end + y.start + uniqid()}

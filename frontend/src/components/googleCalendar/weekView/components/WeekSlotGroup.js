@@ -98,6 +98,7 @@ function WeakSlotGroup(props) {
             startDate={2}
             openAddEventModal={props.openAddEventModal}
             onEventDelete={props.onEventDelete}
+            onClassDelete={props.onClassDelete}
             onEventUpdate={props.onEventUpdate}
             subjects={props.subjects}
           />

@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
-import moment from 'moment';
-import AddEventModal from './AddEventModal';
-import {generateWeekViewCoordinates} from '../../utils';
-import {eventHighlighter} from '../styles';
+import React, { Component } from "react";
+import moment from "moment";
+import AddEventModal from "./AddEventModal";
+import { generateWeekViewCoordinates } from "../../utils";
+import { eventHighlighter } from "../styles";
 import uniqid from "uniqid";
 class EventHighlighter extends Component {
   state = {
@@ -13,10 +13,18 @@ class EventHighlighter extends Component {
 
   /**
    * Deletes the event from the event list
-  */
+   */
   deleteEvent = () => {
-    this.props.onEventDelete (this.props.event.id);
-    this.setState ({
+    // save it to cancelledclass state
+    console.log("delete event calles", this.props.event);
+    let event = this.props.event;
+    this.props.onClassDelete(
+      String(event.start) + event.course_code,
+      event.course_name
+    );
+
+    this.props.onEventDelete(this.props.event.id);
+    this.setState({
       showEditEventModal: false,
     });
   };
@@ -25,14 +33,14 @@ class EventHighlighter extends Component {
    * Updates the event
    * @param {string} title - Updated title of the event
    */
-  updateEvent = title => {
-   // console.log(title);
-    this.props.onEventUpdate (this.props.event.id, {
+  updateEvent = (title) => {
+    // console.log(title);
+    this.props.onEventUpdate(this.props.event.id, {
       title,
       start: this.state.eventNewStart,
       end: this.state.eventNewEnd,
     });
-    this.setState ({
+    this.setState({
       showEditEventModal: false,
     });
   };
@@ -43,7 +51,7 @@ class EventHighlighter extends Component {
   openEditEventModal = () => {
     console.log(this.props.event[0]);
     this.props.setTitle(this.props.event[0]);
-    this.setState ({
+    this.setState({
       eventNewStart: this.props.event[0].start,
       eventNewEnd: this.props.event[0].end,
     });
@@ -53,9 +61,9 @@ class EventHighlighter extends Component {
    * Set the updated start and end times the state of the event being edited
    * @param {arr: moment, moment} - Array containing start and end date of the event
    */
-  onCurrentEventTimeChange = dates => {
-    console.log ('called');
-    this.setState ({
+  onCurrentEventTimeChange = (dates) => {
+    console.log("called");
+    this.setState({
       ...this.state,
       eventNewStart: +dates[0],
       eventNewEnd: +dates[1],
@@ -66,22 +74,22 @@ class EventHighlighter extends Component {
    * Closes modal and does nothing more!
    */
   closeModal = () => {
-    this.setState ({
+    this.setState({
       showEditEventModal: false,
     });
   };
 
-  render () {
-  // if(this.props.event) console.log(this.props);
- // if(this.props.event && console.log(this.props.event[0])){}
+  render() {
+    // if(this.props.event) console.log(this.props);
+    // if(this.props.event && console.log(this.props.event[0])){}
 
     return (
       <React.Fragment>
         <div
-        key={uniqid()}
+          key={uniqid()}
           onClick={this.openEditEventModal}
           style={{
-            ...generateWeekViewCoordinates (
+            ...generateWeekViewCoordinates(
               this.props.event,
               this.props.startDate
             ),
@@ -89,12 +97,9 @@ class EventHighlighter extends Component {
           }}
         >
           {this.props.event[0].course_code} <br />
-          <span style={{fontSize: 9.7}}>
-            {moment (Number(this.props.event[0].start)).format ('hh:mm a')}
-            {' '}
-            -
-            {' '}
-            {moment (Number(this.props.event[0].end)).format ('hh:mm a')}
+          <span style={{ fontSize: 9.7 }}>
+            {moment(Number(this.props.event[0].start)).format("hh:mm a")} -{" "}
+            {moment(Number(this.props.event[0].end)).format("hh:mm a")}
           </span>
         </div>
       </React.Fragment>
