@@ -59,8 +59,9 @@ class AddEventModal extends Component {
                 : ""}
             </h3>{" "}
             <h3 style={{ fontWeight: "light" }}>
-              Time : {moment(this.props.eventStart).format("h a")} -{" "}
-              {moment(this.props.eventEnd).format("h a")}
+              Time : {moment(this.props.eventStart).format("h a")}
+              {/* -{" "}
+              {moment(this.props.eventEnd).format("h a")} */}
             </h3>
           </span>
         }

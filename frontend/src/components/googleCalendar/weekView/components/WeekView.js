@@ -780,7 +780,7 @@ class WeekView extends Component {
             startDate={startDate}
             goToToday={this.goToToday}
           />{" "}
-          <div key={uniqid()}>
+          <div style={{ paddingLeft: "16rem" }}>
             <TimeHeader times={times} />{" "}
             {this.props.mytimetable
               ? weekDays.map((day) => {

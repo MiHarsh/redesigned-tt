@@ -83,7 +83,7 @@ class EventHighlighter extends Component {
     // if(this.props.event) console.log(this.props);
     // if(this.props.event && console.log(this.props.event[0])){}
     console.log("Inside eventHighlighter[Harshit] ", this.props.event);
-    let opac = 100 * (1 - 1/this.props.event[0].clash_counts);
+    let opac = 100 * (this.props.event[0].clash_counts/12);
     console.log("Opacity: ", opac, this.props.event[0].clash_counts);
 
     return (

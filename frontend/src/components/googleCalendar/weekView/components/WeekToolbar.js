@@ -15,7 +15,7 @@ function WeekToolbar(props) {
   return (
     <Row type="flex" gutter={4} style={toolbar}>
       <Col span={6} offset={3} style={appTitle}>
-        <Icon type="calendar" style={spacify} />
+        <Icon type="calendar" style={{ ...spacify, paddingLeft: "4.25rem" }} />
       </Col>
       <Col span={3} offset={8} style={alignRight}>
         <Tooltip placement="topLeft" title={moment().format("dddd, MMM D")}>

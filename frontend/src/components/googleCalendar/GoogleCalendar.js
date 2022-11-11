@@ -127,8 +127,8 @@ class GoogleCalendar extends Component {
   };
 
   getStudentAllotedCourses = (courseCode) => {
-    const usermail = "shikha";
-
+    // const usermail = "shikha";
+    const usermail = this.props.currentUser.email.split("@")[0];
     // this.props.currentUser.email.split("@")[0];
     console.log(usermail);
 
@@ -159,12 +159,10 @@ class GoogleCalendar extends Component {
     //   this.setState({...this.state,subjects:res});
     //  })
 
-    const usermail = "shikha";
+    // const usermail = "shikha";
 
-    // this.props.currentUser.email.split("@")[0];
+    const usermail = this.props.currentUser.email.split("@")[0];
     console.log(usermail);
-
-    const weekDay = getAllDaysInTheWeek();
 
     axios
       .post("http://localhost:5000/api/getFacultyCD", {
