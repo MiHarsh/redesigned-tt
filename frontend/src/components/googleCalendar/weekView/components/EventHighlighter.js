@@ -82,6 +82,9 @@ class EventHighlighter extends Component {
   render() {
     // if(this.props.event) console.log(this.props);
     // if(this.props.event && console.log(this.props.event[0])){}
+    console.log("Inside eventHighlighter[Harshit] ", this.props.event);
+    let opac = 100 / (this.props.event[0].clash_counts);
+    console.log("Opacity: ", opac, this.props.event[0].clash_counts);
 
     return (
       <React.Fragment>
@@ -94,6 +97,7 @@ class EventHighlighter extends Component {
               this.props.startDate
             ),
             ...eventHighlighter,
+            "background": `rgba(255, 0, 0, ${opac/100})`,
           }}
         >
           {this.props.event[0].course_code} <br />

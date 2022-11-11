@@ -29,6 +29,7 @@ function TimeSlot(props) {
     return events[flag];
   };
   let y = isTeacherSubjectPresent(event);
+  console.log("Event to be added in TT: ", event);
   return (
     <Col
       key={props.dateStamp}

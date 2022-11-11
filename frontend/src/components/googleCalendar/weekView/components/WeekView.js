@@ -84,6 +84,7 @@ const processStudentTT = (studentdata, day) => {
     data.id = data.eventId;
     data.startWeek = moment(start).week();
     data.endWeek = moment(start).week();
+    data.isStudentAlloted = true;
 
     for (const [ckey, cvalue] of Object.entries(data.courses_details)) {
       // ckey is course_code ;  cvalue is details of course
@@ -711,7 +712,7 @@ class WeekView extends Component {
         <div style={{ display: "flex", paddingLeft: "40%" }}>
           <h3
             style={{
-              fontFamily: "Ubuntu",
+              fontFamily: " sans-serif",
               fontSize: "30px",
               textAlign: "center",
             }}
@@ -726,7 +727,7 @@ class WeekView extends Component {
               width: "150px",
               display: "grid",
               marginLeft: "auto",
-              fontFamily: "Ubuntu",
+              fontFamily: " sans-serif",
               marginBottom: "2rem",
               marginTop: "0rem",
             }}
@@ -776,7 +777,8 @@ class WeekView extends Component {
             goToToday={this.goToToday}
           />{" "}
           <div key={uniqid()}>
-            <TimeHeader times={times} />{" "}
+            <TimeHeader times={times}
+            />{" "}
             {this.props.mytimetable
               ? weekDays.map((day) => {
                   const x1 = moment(day.dateStamp).year();

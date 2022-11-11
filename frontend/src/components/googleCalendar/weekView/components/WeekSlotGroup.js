@@ -81,7 +81,7 @@ function WeakSlotGroup(props) {
                 display: "grid",
                 justifyContent: "center",
               }
-            : { ...col, ...weekDays, display: "grid", justifyContent: "center" }
+            : { ...col, ...weekDays, display: "grid", justifyContent: "center"}
         }
       >
         <p style={weekDayName}>{props.day.weekDayName}</p>

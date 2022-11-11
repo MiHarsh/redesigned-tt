@@ -68,7 +68,7 @@ class AddEventModal extends Component {
         onOk={() => this.handleOk()}
         onCancel={this.props.onCloseTab}
         width="70%"
-        style={{ fontFamily: "Ubuntu" }}
+        style={{ fontFamily: " sans-serif" }}
         footer={[
           <Button
             key="back"

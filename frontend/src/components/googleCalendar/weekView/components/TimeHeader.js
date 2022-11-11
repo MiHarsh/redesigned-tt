@@ -34,7 +34,17 @@ function TimeHeader(props) {
         <Col
           key={uniqid()}
           span={3}
-          style={{
+          style={(time === "") ? {
+            fontSize: 13,
+            color: "#212121",
+            textAlign: "right",
+            padding: 6,
+            border: "1px solid rgb(224,224,224)",
+            width: "80px",
+            display: "grid",
+            justifyContent: "center",
+          }: {
+            background: "#87cefa",
             fontSize: 13,
             color: "#212121",
             textAlign: "right",
