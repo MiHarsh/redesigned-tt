@@ -137,7 +137,18 @@ const processStudentTT = (studentdata, day) => {
     // add only if any class is left, and day has arrived
     console.log("key-value", key, value);
 
-    let flag = new Date(day.dateStamp).getDate() === new Date(start).getDate();
+    const date1 = new Date(day.dateStamp);
+    const date2 = new Date(start);
+    let flag = false;
+
+    if (
+      date1.getFullYear() === date2.getFullYear() &&
+      date1.getMonth() === date2.getMonth() &&
+      date1.getDate() === date2.getDate()
+    ) {
+      flag = true;
+    }
+
     console.log(
       "key-value, start end",
       day,
