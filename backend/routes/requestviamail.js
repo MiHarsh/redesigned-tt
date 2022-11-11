@@ -9,8 +9,8 @@ router.post("/", (req, res) => {
     from: process.env.MAIL_USERNAME, // sender address
     to: req.body.userMail, // list of receivers
     subject: "Request for Slot Change of Course Code: " + req.body.subCode, // Subject line
-    html: "Hello,<br>The course instructor of course <b>" + req.body.requestedBy + "</b> has requested you to change your slot of <b>" 
-     + req.body.subCode + "</b> scheduled at <b>" + req.body.time + "</b> to prevent clash with the class they want to schedule.", // plaintext body
+    html: `Hello,<br>The course instructor of course <b>` + req.body.requestedBy + `</b> has requested you to change your slot of <b>`
+     + req.body.subCode + `</b> scheduled at <b>` + req.body.time + `</b> to prevent clash with the class they want to schedule.`, // plaintext body
     //html: "<b>Hello world ✔</b>", // html body
   };
 

@@ -66,6 +66,14 @@ export const BookedSlotView = (props) => {
     }
   }
   const [final_data, setFinal_Data] = useState(data1);
+  for (const [key, val] in Object.entries(data1)) {
+    if (data1[key].instructor_mail.length) {
+      data1[key].prof = data1[key].instructor_mail.split('@')[0];
+    } else {
+      data1[key].prof = "Dr. Harshit"
+    }
+  }
+
   const sendEmail = (i, course_email) => {
     if (final_data[i].isemailSent) {
     } else {

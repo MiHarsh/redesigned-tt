@@ -16,7 +16,7 @@ function getGeneralClasses(weekday, facultyDetails, courseDetails, req) {
     if (key in course_offered) continue;
 
     let course = courseDetails[key];
-    //console.log("Course: ", course);
+    console.log("Course: ", course);
 
     for (let idx = 0; idx < course.general_slots.length; idx++) {
       let slot = course.general_slots[idx];
