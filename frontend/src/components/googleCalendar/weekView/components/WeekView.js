@@ -135,13 +135,15 @@ const processStudentTT = (studentdata, day) => {
       }
     }
     // add only if any class is left, and day has arrived
-    if (value.clash_counts > 0 && day.dateStamp === start) {
+    console.log("key-value", key, value);
+    console.log("key-value, start end", day, start);
+    if (value.clash_counts > 0) {
       mytime.push(value);
     } else {
       console.log("Sorry, no class left, all are cancelled");
     }
   }
-
+  console.log("getd key-val", mytime);
   return mytime;
 };
 
