@@ -206,6 +206,7 @@ class GoogleCalendar extends Component {
 
     return (
       <WeekView
+        currentUser={this.props.currentUser.email.split("@")[0]}
         events={events}
         clashes={clashes}
         clashdata={this.state.clashdata}

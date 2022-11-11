@@ -717,7 +717,11 @@ class WeekView extends Component {
               textAlign: "center",
             }}
           >
-            Monsoon Semester Time Table
+            {this.props.currentUser
+              ? this.props.currentUser.charAt(0).toUpperCase() +
+                this.props.currentUser.slice(1)
+              : ""}
+            's Time Table
           </h3>
           <select
             className="form-select"
@@ -777,8 +781,7 @@ class WeekView extends Component {
             goToToday={this.goToToday}
           />{" "}
           <div key={uniqid()}>
-            <TimeHeader times={times}
-            />{" "}
+            <TimeHeader times={times} />{" "}
             {this.props.mytimetable
               ? weekDays.map((day) => {
                   const x1 = moment(day.dateStamp).year();
