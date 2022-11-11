@@ -136,8 +136,17 @@ const processStudentTT = (studentdata, day) => {
     }
     // add only if any class is left, and day has arrived
     console.log("key-value", key, value);
-    console.log("key-value, start end", day, start);
-    if (value.clash_counts > 0) {
+
+    let flag = new Date(day.dateStamp).getDate() === new Date(start).getDate();
+    console.log(
+      "key-value, start end",
+      day,
+      start,
+      flag,
+      new Date(start).getDate(),
+      new Date(day.dateStamp).getDate()
+    );
+    if (value.clash_counts > 0 && flag) {
       mytime.push(value);
     } else {
       console.log("Sorry, no class left, all are cancelled");
