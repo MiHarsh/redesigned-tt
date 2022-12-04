@@ -29,11 +29,11 @@ const enrolledStudent = require("../public/enrolledStudent.json");
 const facultyDetails = require("../public/facultyDetails.json");
 const studentDetails = require("../public/studentDetails.json");
 
-db.ref("/courseDetails")
-  .set(courseDetails)
-  .then(() => {
-    console.log("course details successfuly uploaded");
-  });
+// db.ref("/courseDetails")
+//   .set(courseDetails)
+//   .then(() => {
+//     console.log("course details successfuly uploaded");
+//   });
 
 db.ref("/enrolledStudent")
   .set(enrolledStudent)

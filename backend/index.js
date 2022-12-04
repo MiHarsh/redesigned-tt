@@ -1,7 +1,8 @@
 const express = require("express");
 const path = require("path");
 const cors = require("cors");
-const bodyParser= require('body-parser');
+const bodyParser = require("body-parser");
+const nodemailer = require("nodemailer");
 
 const app = express();
 require("dotenv").config();
@@ -39,11 +40,32 @@ dbRef = db.ref();
 
 app.set("db", db);
 
+const smtp = nodemailer.createTransport({
+  service: "gmail",
+  host: "smtp.gmail.com",
+  auth: {
+    user: process.env.MAIL_USERNAME,
+    pass: process.env.MAIL_PASSCODE,
+  },
+});
+
+app.set("smtp", smtp);
+
 // use routes
 app.use("/api/status", require("./routes/status"));
+app.use("/api/requestMail", require("./routes/requestviamail"));
 app.use("/api/getFacultyTT", require("./routes/getFacultyTT"));
-app.use("/api/bookSlot" , require("./routes/bookSlots"));
+app.use("/api/bookSlot", require("./routes/bookSlots"));
 app.use("/api/cancelledSlot", require("./routes/cancelledSlots"));
+app.use("/api/getFacultyCD", require("./routes/getFacultyCD"));
+app.use(
+  "/api/getCourseStudentsTimeTable",
+  require("./routes/getCourseStudentsTimeTable")
+);
+app.use(
+  "/api/generateStudentAllotedCourses",
+  require("./routes/generateStudentAllotedCourses")
+);
 
 // serve static assets if we are in production
 if (process.env.NODE_ENV === "production") {

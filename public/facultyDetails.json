@@ -1,24 +1,37 @@
 {
   "shikha": {
-    "name": "Harsh Mishra",
+    "name": "Shikha Singh",
     "dept": "ece",
     "phone_number": 9793221385,
     "mail_id": "harsh.19JE0353@ece.iitism.ac.in",
-    "courses_offering": ["CHC206", "CHC207"],
+    "courses_offering": ["MSC507", "MSO501"],
     "student_alloted_courses": {
-      "CHC206": {
-        "CHC206": 3,
-        "CHC207": 4,
-        "CHC208": 5,
-        "CHC209": 6,
-        "CHC210": 8
-      },
-      "CHC207": {
-        "CHC206": 3,
-        "CHC207": 4,
-        "CHC208": 5,
-        "CHC209": 6,
-        "CHC210": 8
+      "MSC507": {
+        "CHC201": 3
+      }
+    }
+  },
+  "harshm17172612": {
+    "name": "Harsh Mishra",
+    "dept": "ece",
+    "phone_number": 9793221385,
+    "mail_id": "harshm17172612@gmail.com",
+    "courses_offering": ["MSC507", "MSO501"],
+    "student_alloted_courses": {
+      "MSC507": {
+        "CHC201": 3
+      }
+    }
+  },
+  "harshit": {
+    "name": "Harshit Gupta",
+    "dept": "ece",
+    "phone_number": 9793221385,
+    "mail_id": "harshit@gmail.com",
+    "courses_offering": ["ECD411","ECD403"],
+    "student_alloted_courses": {
+      "MSC507": {
+        "CHC201": 3
       }
     }
   },
@@ -29,26 +42,8 @@
     "mail_id": "harsh.19JE0353@ece.iitism.ac.in",
     "courses_offering": ["CHC208", "CHE202", "CSC206"],
     "student_alloted_courses": {
-      "CHC208": {
-        "CHC206": 3,
-        "CHC207": 4,
-        "CHC208": 5,
-        "CHC209": 6,
-        "CHC210": 8
-      },
-      "CHE202": {
-        "CHC206": 3,
-        "CHC207": 4,
-        "CHC208": 5,
-        "CHC209": 6,
-        "CHC210": 8
-      },
-      "CSC206": {
-        "CHC206": 3,
-        "CHC207": 4,
-        "CHC208": 5,
-        "CHC209": 6,
-        "CHC210": 8
+      "MSC507": {
+        "CHC201": 3
       }
     }
   },
@@ -59,26 +54,8 @@
     "mail_id": "harsh.19JE0353@ece.iitism.ac.in",
     "courses_offering": ["CHC208", "CHC209", "CHC210"],
     "student_alloted_courses": {
-      "CHC208": {
-        "CHC206": 3,
-        "CHC207": 4,
-        "CHC208": 5,
-        "CHC209": 6,
-        "CHC210": 8
-      },
-      "CHC209": {
-        "CHC206": 3,
-        "CHC207": 4,
-        "CHC208": 5,
-        "CHC209": 6,
-        "CHC210": 8
-      },
-      "CHC210": {
-        "CHC206": 3,
-        "CHC207": 4,
-        "CHC208": 5,
-        "CHC209": 6,
-        "CHC210": 8
+      "MSC507": {
+        "CHC201": 3
       }
     }
   }

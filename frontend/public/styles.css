@@ -10,6 +10,11 @@ body {
   background: #eee;
   padding: 0 16px;
 } */
+@import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@200;400&display=swap');
+
+html {
+  font-family: 'Oxanium', cursive;
+}
 
 header {
   margin-top: 3%;

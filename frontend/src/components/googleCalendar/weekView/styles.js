@@ -1,6 +1,6 @@
 export const col = {
-  border: '#e0e0e0 2px solid',
-  width:"80px"
+  border: "#e0e0e0 2px solid",
+  width: "80px",
 };
 export const weekDays = {
   height: 60,
@@ -8,44 +8,44 @@ export const weekDays = {
 
 export const weekDayName = {
   fontSize: 12,
-  textTransform: 'capitalize',
-  color: '#757575',
+  textTransform: "capitalize",
+  color: "#757575",
   marginLeft: 10,
-  marginBottom:0
+  marginBottom: 0,
 };
 
 export const container = {
-  paddingRight: '10em',
-  paddingTop: '2em',
-  paddingBottom: '2em',
+  paddingRight: "10em",
+  paddingTop: "2em",
+  paddingBottom: "2em",
 };
 
 export const weekDates = {
   fontSize: 25,
-  color: '#9e9e9e',
+  color: "#9e9e9e",
   marginLeft: 10,
 };
 
 export const slot = {
   height: 60,
-  cursor: 'pointer',
+  cursor: "pointer",
 };
 export const timeCol = {
-  border:'2px solid  rbg(224,224,224)',
+  border: "2px solid  rbg(224,224,224)",
   fontSize: 10,
-  color: '#212121',
-  textAlign: 'right',
-  padding: 6
+  color: "#212121",
+  textAlign: "right",
+  padding: 6,
 };
 
 export const timeString = {
-  position: 'absolute',
+  position: "absolute",
   right: 8,
   top: -8,
 };
 
 export const row = {
-  position: 'relative',
+  position: "relative",
 };
 
 export const toolbar = {
@@ -56,18 +56,18 @@ export const toolbarDate = {
   fontSize: 20,
   fontWeight: 400,
   opacity: 0.54,
-  lineHeight: '30px',
-  textAlign: 'right',
+  lineHeight: "30px",
+  textAlign: "right",
 };
 
 export const appTitle = {
   fontSize: 20,
   fontWeight: 400,
-  lineHeight: '30px',
+  lineHeight: "30px",
 };
 
 export const alignRight = {
-  textAlign: 'right',
+  textAlign: "right",
 };
 
 export const spacify = {
@@ -82,24 +82,24 @@ export const inputStyles = {
 export const weekButtons = {
   paddingRight: 0,
   paddingLeft: 14,
-  textAlign: 'center',
+  textAlign: "center",
 };
 
 export const lightHighlighter = {
-  backgroundColor: 'rgba(0,0,0,0.04)',
+  backgroundColor: "rgba(0,0,0,0.04)",
 };
 
 export const eventHighlighter = {
-  position: 'absolute',
+  position: "absolute",
 
- backgroundColor:'#08C18F',
-  border: '1px solid #81cdf2',
-  borderRadius: '4px',
-  color: 'white',
-  padding: '1px 4px',
-  fontSize: '12px',
+  backgroundColor: "#08C18F",
+  border: "1px solid #81cdf2",
+  borderRadius: "4px",
+  color: "white",
+  padding: "1px 4px",
+  fontSize: "12px",
   zIndex: 1,
-  cursor: 'pointer',
-  width:80,
-  height:61
+  cursor: "pointer",
+  width: 80,
+  height: 61,
 };

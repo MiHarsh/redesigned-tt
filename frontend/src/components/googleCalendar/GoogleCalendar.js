@@ -1,6 +1,11 @@
 import React, { Component } from "react";
 import WeekView from "./weekView";
 import CalendarEventHandler from "./calendarEventHandler";
+import { useAuth } from "../../contexts/AuthContext";
+import axios from "axios";
+import moment from "moment";
+
+import { getAllDaysInTheWeek } from "./utils";
 
 class GoogleCalendar extends Component {
   constructor(props) {
@@ -9,7 +14,36 @@ class GoogleCalendar extends Component {
     this.state = {
       prof_details: JSON.parse(localStorage.getItem("professor_info")) || {},
       events: JSON.parse(localStorage.getItem("events28")) || {},
+      clashdata: {},
+      clashes: {
+        MCD501: {
+          2022313: [
+            {
+              course_code: "MCD501",
+              start: 1667989800000,
+              end: 1667993400000,
+              eventId: "1667989800000MCD5011667993400000",
+              course_name: "Mathematics and Computing",
+              id: "1667989800000MCD5011667993400000",
+              startWeek: 46,
+              endWeek: 46,
+            },
+          ],
+        },
+      },
       subjects: [],
+      mytimetable: {
+        Sun: [],
+        Mon: [],
+        Tue: [],
+        Wed: [],
+        Thu: [],
+        Fri: [],
+        Sat: [],
+      },
+      extraclass: [],
+      cancelledclass: {},
+      studentAllottedCourses: {},
     };
 
     // saving data to the local storag8
@@ -17,6 +51,14 @@ class GoogleCalendar extends Component {
       localStorage.setItem("events28", JSON.stringify(this.state.events));
     });
   }
+
+  updateClashes = (clash) => {
+    console.log("clash found", clash);
+    this.setState((prevState) => ({
+      ...prevState,
+      clashdata: clash,
+    }));
+  };
 
   /**
    * Add new event in the event list in the state
@@ -28,14 +70,14 @@ class GoogleCalendar extends Component {
    * }
    */
   addNewEvent = (event) => {
-    console.log("new event receieved to be added", event);
+    console.log("Request to add event: ", event);
     event = {
       ...event,
       id: CalendarEventHandler.generateId(event),
     };
     //   console.log(event);
-    this.setState((previousSate) => ({
-      events: CalendarEventHandler.add(previousSate.events, event),
+    this.setState((previousState) => ({
+      events: CalendarEventHandler.add(previousState.events, event),
     }));
   };
 
@@ -73,23 +115,74 @@ class GoogleCalendar extends Component {
       };
     });
   };
+
+  deleteClass = (classID, course_name) => {
+    console.log(classID, course_name, "cancelling");
+    let cancel = { ...this.state.cancelledclass };
+    cancel[classID] = course_name;
+    this.setState((prev) => ({
+      ...prev,
+      cancelledclass: cancel,
+    }));
+  };
+
+  getStudentAllotedCourses = (courseCode) => {
+    // const usermail = "shikha";
+    const usermail = this.props.currentUser.email.split("@")[0];
+    // this.props.currentUser.email.split("@")[0];
+    console.log(usermail);
+
+    if (!(courseCode in this.state.studentAllottedCourses)) {
+      axios
+        .post("http://localhost:5000/api/getCourseStudentsTimeTable", {
+          alias: usermail,
+          subCode: courseCode,
+        })
+        .then((response) => {
+          let sac = this.state.studentAllottedCourses;
+          sac[courseCode] = response.data;
+          this.setState((prev) => ({
+            ...prev,
+            studentAllottedCourses: sac,
+          }));
+
+          console.log(
+            "sac data set for" + courseCode + "course",
+            response.data
+          );
+        });
+    }
+  };
+
   getSubjects = () => {
     //  axios.get('url').then((res)=>{
     //   this.setState({...this.state,subjects:res});
     //  })
-    const subjects = [
-      {
-        course_code: "MCD501",
-        course_name: "Mathematics and Computing",
-        prof: "hello",
-      },
-      { course_code: "DFG103", course_name: "HIFI", prof: "iam back" },
-      { course_code: "MNE302", course_name: "mining", prof: "ram charan" },
-    ];
-    this.setState({ ...this.state, subjects });
+
+    // const usermail = "shikha";
+
+    const usermail = this.props.currentUser.email.split("@")[0];
+    console.log(usermail);
+
+    axios
+      .post("http://localhost:5000/api/getFacultyCD", {
+        alias: usermail,
+      })
+      .then((response) => {
+        this.setState((prev) => ({
+          ...prev,
+          subjects: response.data.courseOffering,
+          mytimetable: response.data.generalclass,
+          extraclass: response.data.extraclass,
+          cancelledclass: response.data.cancelledSlots,
+        }));
+
+        console.log("Response data from getSubjects: ", response.data);
+      });
   };
+
   componentDidUpdate(prevProps, snapshot) {
-    console.log(prevProps, "these are before update", snapshot);
+    console.log(prevProps, " these are before update ", snapshot);
   }
 
   componentDidMount() {
@@ -98,17 +191,41 @@ class GoogleCalendar extends Component {
     this.getSubjects();
   }
   render() {
-    const { events, subjects } = this.state;
+    const {
+      events,
+      subjects,
+      clashes,
+      mytimetable,
+      extraclass,
+      cancelledclass,
+      studentAllottedCourses,
+    } = this.state;
+    console.log("Props before render: ", this.props.currentUser);
+
     return (
       <WeekView
+        currentUser={this.props.currentUser.email.split("@")[0]}
         events={events}
+        clashes={clashes}
+        clashdata={this.state.clashdata}
+        setClashes={this.updateClashes}
+        setSAC={this.getStudentAllotedCourses}
         subjects={subjects}
+        mytimetable={mytimetable}
+        extraclass={extraclass}
+        cancelledclass={cancelledclass}
+        studentAllottedCourses={studentAllottedCourses}
         onNewEvent={this.addNewEvent}
         onEventUpdate={this.updateEvent}
         onEventDelete={this.deleteEvent}
+        onClassDelete={this.deleteClass}
       />
     );
   }
 }
 
-export default GoogleCalendar;
+export default () => {
+  const { currentUser } = useAuth();
+
+  return <GoogleCalendar currentUser={currentUser} />;
+};

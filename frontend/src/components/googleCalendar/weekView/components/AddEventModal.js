@@ -30,9 +30,9 @@ class AddEventModal extends Component {
       startTime: this.state.start,
       endTime: this.state.end,
     };
-    // axios.post("http://localhost:8000/api/bookSlot", detail).then((res) => {
-    //   console.log(res);
-    // });
+    axios.post("http://localhost:5000/api/bookSlot", detail).then((res) => {
+      console.log(res);
+    });
   };
   isMeetThreshold = (data, threshold) => {
     let flag = 0;
@@ -47,6 +47,7 @@ class AddEventModal extends Component {
   };
   render() {
     let data = this.props.clashes;
+    console.log(data, "props.clashes");
     return (
       <Modal
         title={
@@ -58,8 +59,9 @@ class AddEventModal extends Component {
                 : ""}
             </h3>{" "}
             <h3 style={{ fontWeight: "light" }}>
-              Time : {moment(this.props.eventStart).format("h a")} -{" "}
-              {moment(this.props.eventEnd).format("h a")}
+              Time : {moment(this.props.eventStart).format("h a")}
+              {/* -{" "}
+              {moment(this.props.eventEnd).format("h a")} */}
             </h3>
           </span>
         }
@@ -67,7 +69,7 @@ class AddEventModal extends Component {
         onOk={() => this.handleOk()}
         onCancel={this.props.onCloseTab}
         width="70%"
-        style={{ fontFamily: "Ubuntu" }}
+        style={{ fontFamily: " sans-serif" }}
         footer={[
           <Button
             key="back"
@@ -80,13 +82,13 @@ class AddEventModal extends Component {
           <Button
             key="submit"
             type="primary"
-            disabled={
-              this.props.isTeacherClash ||
-              (this.props.isSubjectClash &&
-                this.isMeetThreshold(data, threshold))
-                ? "disabled"
-                : ""
-            }
+            // disabled={
+            //   this.props.isTeacherClash ||
+            //   (this.props.isSubjectClash &&
+            //     this.isMeetThreshold(data, threshold))
+            //     ? "disabled"
+            //     : ""
+            // }
             onClick={() => {
               this.handleOk();
             }}
@@ -105,7 +107,7 @@ class AddEventModal extends Component {
           subjects={this.props.subjects}
           eventId={this.props.eventId}
           present_subject={this.props.present_subject}
-          data={data}
+          data={this.props.clashes}
         />
       </Modal>
     );

@@ -4,20 +4,83 @@
     "dept": "ece",
     "phone_number": 9793221385,
     "mail_id": "harsh.19JE0353@ece.iitism.ac.in",
-    "courses_enrolled": ["CHC206", "CHC207", "CHC208", "CHC209", "CHC210"]
+    "courses_enrolled": ["ECD411", "MSO501", "MSC507", "CHC201"]
+  },
+  "19JE0358": {
+    "name": "Harshit Gupta",
+    "dept": "ece",
+    "phone_number": 9793221385,
+    "mail_id": "harsh.19JE0353@ece.iitism.ac.in",
+    "courses_enrolled": ["ECD411", "MSO501", "CHC201", "ECD403"]
+  },
+  "19JE0079": {
+    "name": "Akanksha Gupta",
+    "dept": "ece",
+    "phone_number": 9793221385,
+    "mail_id": "harsh.19JE0353@ece.iitism.ac.in",
+    "courses_enrolled": ["ECD411", "MSO501", "CHC201", "ECD403"]
+  },
+  "19JE0845": {
+    "name": "Swaraj Jain",
+    "dept": "ece",
+    "phone_number": 9793221385,
+    "mail_id": "harsh.19JE0353@ece.iitism.ac.in",
+    "courses_enrolled": ["ECD411", "MSC507", "CHC201", "ECD403"]
   },
   "19JE0354": {
     "name": "Harshal Mishra",
     "dept": "ece",
     "phone_number": 9793221385,
     "mail_id": "harsh.19JE0353@ece.iitism.ac.in",
-    "courses_enrolled": ["CHC206", "CHC207", "CHC208", "CHE202", "CSC206"]
+    "courses_enrolled": ["CHC201", "CHC202", "CHC203", "CHC204"]
   },
   "19JE0355": {
     "name": "Harshit Mishra",
     "dept": "ece",
     "phone_number": 9793221385,
     "mail_id": "harsh.19JE0353@ece.iitism.ac.in",
-    "courses_enrolled": ["CHC206", "CHC207", "CHC208", "CHC209", "CHC210"]
+    "courses_enrolled": ["CHC201", "CHC202", "CHC203", "CHC204"]
+  },
+  "21JE0353": {
+    "name": "Harsh Mishra",
+    "dept": "ece",
+    "phone_number": 9793221385,
+    "mail_id": "harsh.19JE0353@ece.iitism.ac.in",
+    "courses_enrolled": ["ECD411", "MSO501", "MSC507", "CHC201"]
+  },
+  "21JE0358": {
+    "name": "Harshit Gupta",
+    "dept": "ece",
+    "phone_number": 9793221385,
+    "mail_id": "harsh.19JE0353@ece.iitism.ac.in",
+    "courses_enrolled": ["ECD411", "MSO501", "CHC201"]
+  },
+  "21JE0079": {
+    "name": "Akanksha Gupta",
+    "dept": "ece",
+    "phone_number": 9793221385,
+    "mail_id": "harsh.19JE0353@ece.iitism.ac.in",
+    "courses_enrolled": ["ECD411", "MSO501", "CHC201"]
+  },
+  "21JE0845": {
+    "name": "Swaraj Jain",
+    "dept": "ece",
+    "phone_number": 9793221385,
+    "mail_id": "harsh.19JE0353@ece.iitism.ac.in",
+    "courses_enrolled": ["ECD411", "MSC507", "CHC201"]
+  },
+  "21JE0354": {
+    "name": "Harshal Mishra",
+    "dept": "ece",
+    "phone_number": 9793221385,
+    "mail_id": "harsh.19JE0353@ece.iitism.ac.in",
+    "courses_enrolled": ["CHC201", "CHC202", "CHC203", "CHC204"]
+  },
+  "21JE0355": {
+    "name": "Harshit Mishra",
+    "dept": "ece",
+    "phone_number": 9793221385,
+    "mail_id": "harsh.19JE0353@ece.iitism.ac.in",
+    "courses_enrolled": ["CHC201", "CHC202", "CHC203", "CHC204"]
   }
 }

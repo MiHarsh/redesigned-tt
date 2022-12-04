@@ -17,8 +17,8 @@ function App() {
       <Router>
         <AuthProvider>
           <Switch>
-            <PrivateRoute exact path="/dashboard" component={Dashboard} />
-            <PrivateRoute exact path="/timetable" component={Timetable} />
+            {/* <PrivateRoute exact path="/dashboard" component={Dashboard} /> */}
+            <PrivateRoute exact path="/" component={Timetable} />
             <PrivateRoute
               exact
               path="/update-profile"
@@ -26,7 +26,7 @@ function App() {
             />
             <PublicRoute exact path="/register" component={Register} />
             <PublicRoute exact path="/login" component={Login} />
-            <PublicRoute exact path="/" component={Home} />
+            {/* <PublicRoute exact path="/" component={Timetable} /> */}
             <PublicRoute
               exact
               path="/forgot-password"
