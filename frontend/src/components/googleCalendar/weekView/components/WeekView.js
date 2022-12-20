@@ -387,7 +387,11 @@ class WeekView extends Component {
         endTime: this.state.eventEnd,
       };
       axios
-        .post("http://localhost:5000/api/cancelledSlot", detail)
+        .post("http://localhost:5000/api/cancelledSlot", detail, {
+          headers: {
+            Authorization: `Bearer ${sessionStorage.getItem("accessToken")}`,
+          },
+        })
         .then((res) => {
           console.log(res);
         });
@@ -514,7 +518,11 @@ class WeekView extends Component {
   getSubjectInfo = (subject) => {
     // just testing
     return axios
-      .get("/api/status")
+      .get("/api/status", {
+        headers: {
+          Authorization: `Bearer ${sessionStorage.getItem("accessToken")}`,
+        },
+      })
       .then((resp) => {
         console.log(resp.data);
         return resp.data;
