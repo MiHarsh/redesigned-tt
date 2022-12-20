@@ -18,8 +18,17 @@ export default function Login() {
     try {
       setError("");
       setLoading(true);
-      await signInWithGoogle();
-      history.push("/");
+      const result = await signInWithGoogle();
+      // The signed-in user info.
+
+      const user = result.user;
+      if (user) {
+        user.getIdToken().then((tkn) => {
+          // set access token in session storage
+          sessionStorage.setItem("accessToken", tkn);
+          history.push("/");
+        });
+      }
     } catch {
       setError("Failed to log in");
     }
@@ -33,8 +42,20 @@ export default function Login() {
     try {
       setError("");
       setLoading(true);
-      await login(emailRef.current.value, passwordRef.current.value);
-      history.push("/");
+      const result = await login(
+        emailRef.current.value,
+        passwordRef.current.value
+      );
+
+      const user = result.user;
+      if (user) {
+        user.getIdToken().then((tkn) => {
+          // set access token in session storage
+          sessionStorage.setItem("accessToken", tkn);
+          history.push("/");
+        });
+      }
+      // history.push("/");
     } catch {
       setError("Failed to log in");
     }
