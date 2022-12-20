@@ -68,9 +68,9 @@ export const BookedSlotView = (props) => {
   const [final_data, setFinal_Data] = useState(data1);
   for (const [key, val] in Object.entries(data1)) {
     if (data1[key].instructor_mail.length) {
-      data1[key].prof = data1[key].instructor_mail.split('@')[0];
+      data1[key].prof = data1[key].instructor_mail.split("@")[0];
     } else {
-      data1[key].prof = "Dr. Harshit"
+      data1[key].prof = "Dr. Harshit";
     }
   }
 
@@ -89,14 +89,24 @@ export const BookedSlotView = (props) => {
       slot_time = slot_time.toUTCString();
       console.log("Slot time: ", slot_time);
 
-      axios.post("http://localhost:5000/api/requestMail", {
-        subCode: final_data[i].course_code,
-        userMail: "harshit2001411@gmail.com",
-        requestedBy: `${props.present_subject.course_name} - ${props.present_subject.course_code}`,
-        time: slot_time,
-      }).then((res) => {
-        console.log("Response object[Harshit]: ", res);
-      });
+      axios
+        .post(
+          "http://localhost:5000/api/requestMail",
+          {
+            subCode: final_data[i].course_code,
+            userMail: "harshit2001411@gmail.com",
+            requestedBy: `${props.present_subject.course_name} - ${props.present_subject.course_code}`,
+            time: slot_time,
+          },
+          {
+            headers: {
+              Authorization: `Bearer ${sessionStorage.getItem("accessToken")}`,
+            },
+          }
+        )
+        .then((res) => {
+          console.log("Response object[Harshit]: ", res);
+        });
     }
   };
   const sendEmailAll = (course_email) => {

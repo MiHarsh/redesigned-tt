@@ -134,10 +134,18 @@ class GoogleCalendar extends Component {
 
     if (!(courseCode in this.state.studentAllottedCourses)) {
       axios
-        .post("http://localhost:5000/api/getCourseStudentsTimeTable", {
-          alias: usermail,
-          subCode: courseCode,
-        })
+        .post(
+          "http://localhost:5000/api/getCourseStudentsTimeTable",
+          {
+            alias: usermail,
+            subCode: courseCode,
+          },
+          {
+            headers: {
+              Authorization: `Bearer ${sessionStorage.getItem("accessToken")}`,
+            },
+          }
+        )
         .then((response) => {
           let sac = this.state.studentAllottedCourses;
           sac[courseCode] = response.data;
@@ -165,9 +173,17 @@ class GoogleCalendar extends Component {
     console.log(usermail);
 
     axios
-      .post("http://localhost:5000/api/getFacultyCD", {
-        alias: usermail,
-      })
+      .post(
+        "http://localhost:5000/api/getFacultyCD",
+        {
+          alias: usermail,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${sessionStorage.getItem("accessToken")}`,
+          },
+        }
+      )
       .then((response) => {
         this.setState((prev) => ({
           ...prev,
