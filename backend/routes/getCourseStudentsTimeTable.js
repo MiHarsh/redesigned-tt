@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const db = require("../config/firebase-config").getDB();
 
 function getGeneralClasses(weekday, facultyDetails, courseDetails, req) {
   let ret = {};
@@ -16,7 +17,7 @@ function getGeneralClasses(weekday, facultyDetails, courseDetails, req) {
     if (key in course_offered) continue;
 
     let course = courseDetails[key];
-    console.log("Course: ", course);
+
 
     for (let idx = 0; idx < course.general_slots.length; idx++) {
       let slot = course.general_slots[idx];
@@ -145,60 +146,54 @@ function getCancelledClasses(weekday, facultyDetails, courseDetails, req) {
 }
 
 router.post("/", (req, res) => {
-  console.log("Request object: ", req.body);
+ 
   const weekday = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
 
-  req.app
-    .get("db")
-    .ref("facultyDetails/" + req.body.alias)
-    .once(
-      "value",
-      (snapshot) => {
-        let facultyDetails = snapshot.val();
+  db.ref("facultyDetails/" + req.body.alias).once(
+    "value",
+    (snapshot) => {
+      let facultyDetails = snapshot.val();
 
-        if (!facultyDetails) {
-          res.json({ error: "Unauthorized" });
-        } else {
-          req.app
-            .get("db")
-            .ref("courseDetails")
-            .once(
-              "value",
-              (snapshot) => {
-                let courseDetails = snapshot.val();
-                let ret = {};
+      if (!facultyDetails) {
+        res.json({ error: "Unauthorized" });
+      } else {
+        db.ref("courseDetails").once(
+          "value",
+          (snapshot) => {
+            let courseDetails = snapshot.val();
+            let ret = {};
 
-                ret["generalClasses"] = getGeneralClasses(
-                  weekday,
-                  facultyDetails,
-                  courseDetails,
-                  req
-                );
-                ret["extraClasses"] = getExtraClasses(
-                  weekday,
-                  facultyDetails,
-                  courseDetails,
-                  req
-                );
-                ret["cancelledClasses"] = getCancelledClasses(
-                  weekday,
-                  facultyDetails,
-                  courseDetails,
-                  req
-                );
-
-                console.log("Final return object: ", ret);
-                res.json(ret);
-              },
-              (errorObject) => {
-                res.json({ error: "The read failed: " + errorObject.name });
-              }
+            ret["generalClasses"] = getGeneralClasses(
+              weekday,
+              facultyDetails,
+              courseDetails,
+              req
             );
-        }
-      },
-      (errorObject) => {
-        res.json({ error: "The read failed: " + errorObject.name });
+            ret["extraClasses"] = getExtraClasses(
+              weekday,
+              facultyDetails,
+              courseDetails,
+              req
+            );
+            ret["cancelledClasses"] = getCancelledClasses(
+              weekday,
+              facultyDetails,
+              courseDetails,
+              req
+            );
+
+           
+            res.json(ret);
+          },
+          (errorObject) => {
+            res.json({ error: "The read failed: " + errorObject.name });
+          }
+        );
       }
-    );
+    },
+    (errorObject) => {
+      res.json({ error: "The read failed: " + errorObject.name });
+    }
+  );
 });
 module.exports = router;

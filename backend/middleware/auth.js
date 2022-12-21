@@ -1,4 +1,4 @@
-const admin = require("../config/firebase-config");
+const admin = require("../config/firebase-config").getFirebaseAdmin();
 
 exports.decodeToken = async function (req, res, next) {
   const tkn = req.header.accessToken;
@@ -6,7 +6,7 @@ exports.decodeToken = async function (req, res, next) {
     .verifyIdToken(tkn)
     .then((decodeTkn) => {
       if (decodeTkn) {
-        res.json({message : "authorized"});
+        res.json({ message: "authorized" });
       }
       res.json({ message: "unauthorized" });
     })

@@ -93,5 +93,5 @@ const getData = () => {
     c.general_slots = slot;
     obj[course_code] = c;
   }
-  console.log(obj);
+ 
 };
