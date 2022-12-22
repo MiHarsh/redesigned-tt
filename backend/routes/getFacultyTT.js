@@ -2,13 +2,15 @@ const express = require("express");
 const router = express.Router();
 const db = require("../config/firebase-config").getDB();
 
-router.post("/", (req, res) => {
+router.post("/", (req, res, next) => {
   db.ref("facultyDetails/" + req.body.alias).once(
     "value",
     (snapshot) => {
       let val = snapshot.val();
       if (!val) {
-        res.json({ error: "Unauthorized" });
+        const error = new Error("Not authorized.");
+                error.statusCode = 401;
+                next(error);
       } else {
         db.ref("courseDetails").once(
           "value",
@@ -33,14 +35,20 @@ router.post("/", (req, res) => {
 
             res.json(ret);
           },
-          (errorObject) => {
-            res.json({ error: "The read failed: " + errorObject.name });
+          (err) => {
+            if (!err.statusCode) {
+              err.statusCode = 500;
+            }
+            next(err);
           }
         );
       }
     },
-    (errorObject) => {
-      res.json({ error: "The read failed: " + errorObject.name });
+    (err) => {
+      if (!err.statusCode) {
+        err.statusCode = 500;
+      }
+      next(err);
     }
   );
 });

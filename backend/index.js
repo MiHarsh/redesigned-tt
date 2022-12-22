@@ -6,6 +6,7 @@ const bodyParser = require("body-parser");
 const firebase = require("./config/firebase-config");
 const mailer = require("./config/nodemailer-config");
 
+
 const app = express();
 
 // Bodyparser middleware
@@ -15,8 +16,14 @@ app.use(cors());
 
 // initialize firebase database and service account
 firebase.initializeApp();
+
+const isAuth = require('./middleware/auth').isAuth;
+
 //initialize nodemailer
 mailer.createTransport();
+
+//auth middleware
+app.use(isAuth);
 
 // use routes
 app.use("/api/status", require("./routes/status"));
@@ -33,6 +40,18 @@ app.use(
   "/api/generateStudentAllotedCourses",
   require("./routes/generateStudentAllotedCourses")
 );
+
+//error handler
+
+app.use((error, req, res, next) => {
+  console.log("from errohandler")
+  console.log(error);
+  const status = error.statusCode || 500;
+  const message = error.message;
+  const data = error.data;
+  res.status(status).json({ message: message, data: data });
+});
+
 
 // serve static assets if we are in production
 if (process.env.NODE_ENV === "production") {
