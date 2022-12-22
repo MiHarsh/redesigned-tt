@@ -3,7 +3,7 @@ const router = express.Router();
 const moment = require("moment");
 const db = require("../config/firebase-config").getDB();
 
-router.post("/", (req, res) => {
+router.post("/", (req, res, next) => {
   const weekday = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
   //new Slot entry
   let momStart = moment(Number(req.body.startTime));
@@ -20,7 +20,9 @@ router.post("/", (req, res) => {
   db.ref("courseDetails/" + req.body.subCode).once("value", (snapshot) => {
     let val = snapshot.val();
     if (!val) {
-      res.json({ error: "Subject Code not found" });
+      const error = new Error("subject code not found");
+      error.statusCode = 404;
+      next(error);
     } else {
       let sub_details = snapshot.val();
       let booked = [];
@@ -36,8 +38,11 @@ router.post("/", (req, res) => {
         .then(() => {
           res.json({ message: "write successful" });
         })
-        .catch((errorObject) => {
-          res.json({ error: "write failed" + errorObject.name });
+        .catch((err) => {
+          if (!err.statusCode) {
+            err.statusCode = 500;
+          }
+          next(err);
         });
     }
   });

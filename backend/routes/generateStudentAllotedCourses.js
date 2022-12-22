@@ -2,9 +2,7 @@ const express = require("express");
 const router = express.Router();
 const db = require("../config/firebase-config").getDB();
 
-router.post("/", (req, res) => {
-
-
+router.post("/", (req, res, next) => {
   db.ref("facultyDetails/" + req.body.alias).once(
     "value",
     (snapshot) => {
@@ -22,7 +20,9 @@ router.post("/", (req, res) => {
               let enrolledStudents = snapshot.val();
 
               if (!enrolledStudents) {
-                res.json({ error: "Unauthorized" });
+                const error = new Error("Not authorized.");
+                error.statusCode = 401;
+                next(error);
               } else {
                 db.ref("studentDetails").once(
                   "value",
@@ -30,7 +30,9 @@ router.post("/", (req, res) => {
                     let studentDetails = snapshot.val();
 
                     if (!studentDetails) {
-                      res.json({ error: "Unauthorized" });
+                      const error = new Error("Not authorized.");
+                      error.statusCode = 401;
+                      next(error);
                     } else {
                       let ret = {};
                       console.log("Data fetched!");
@@ -42,7 +44,6 @@ router.post("/", (req, res) => {
                       ) {
                         let courseCode = facultyDetails.courses_offering[i];
                         ret[courseCode] = {};
-                        
 
                         for (const [j, student] of Object.entries(
                           enrolledStudents[courseCode]
@@ -57,7 +58,6 @@ router.post("/", (req, res) => {
                         }
                       }
 
-                   
                       db.ref(
                         "facultyDetails/" +
                           req.body.alias +
@@ -67,29 +67,37 @@ router.post("/", (req, res) => {
                         .then(() => {
                           res.json({ message: "Successfully generated!" });
                         })
-                        .catch((errorObject) => {
-                          res.json({
-                            error: "Generation failed" + errorObject.name,
-                          });
+                        .catch((err) => {
+                          if (!err.statusCode) {
+                            err.statusCode = 500;
+                          }
+                          next(err);
                         });
                     }
                   },
-                  (errorObject) => {
-                    res.json({
-                      error: "The read failed: " + errorObject.name,
-                    });
+                  (err) => {
+                    if (!err.statusCode) {
+                      err.statusCode = 500;
+                    }
+                    next(err);
                   }
                 );
               }
             },
-            (errorObject) => {
-              res.json({ error: "The read failed: " + errorObject.name });
+            (err) => {
+              if (!err.statusCode) {
+                err.statusCode = 500;
+              }
+              next(err);
             }
           );
       }
     },
-    (errorObject) => {
-      res.json({ error: "The read failed: " + errorObject.name });
+    (err) => {
+      if (!err.statusCode) {
+        err.statusCode = 500;
+      }
+      next(err);
     }
   );
 });

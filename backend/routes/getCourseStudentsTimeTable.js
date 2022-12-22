@@ -18,7 +18,6 @@ function getGeneralClasses(weekday, facultyDetails, courseDetails, req) {
 
     let course = courseDetails[key];
 
-
     for (let idx = 0; idx < course.general_slots.length; idx++) {
       let slot = course.general_slots[idx];
       let dtcode = slot.dtcode;
@@ -145,8 +144,7 @@ function getCancelledClasses(weekday, facultyDetails, courseDetails, req) {
   return ret;
 }
 
-router.post("/", (req, res) => {
- 
+router.post("/", (req, res, next) => {
   const weekday = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
 
   db.ref("facultyDetails/" + req.body.alias).once(
@@ -155,7 +153,9 @@ router.post("/", (req, res) => {
       let facultyDetails = snapshot.val();
 
       if (!facultyDetails) {
-        res.json({ error: "Unauthorized" });
+        const error = new Error("Not authorized.");
+        error.statusCode = 401;
+        next(error);
       } else {
         db.ref("courseDetails").once(
           "value",
@@ -182,17 +182,22 @@ router.post("/", (req, res) => {
               req
             );
 
-           
             res.json(ret);
           },
-          (errorObject) => {
-            res.json({ error: "The read failed: " + errorObject.name });
+          (err) => {
+            if (!err.statusCode) {
+              err.statusCode = 500;
+            }
+            next(err);
           }
         );
       }
     },
-    (errorObject) => {
-      res.json({ error: "The read failed: " + errorObject.name });
+    (err) => {
+      if (!err.statusCode) {
+        err.statusCode = 500;
+      }
+      next(err);
     }
   );
 });

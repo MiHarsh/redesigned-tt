@@ -35,6 +35,7 @@ const serviceAccountConfig = {
 let db, admin;
 
 const initializeApp = () => {
+  console.log("trying to intializing firebase")
   firebase.initializeApp(firebaseConfig);
   firebaseAdmin.initializeApp({
     credential: firebaseAdmin.credential.cert(serviceAccountConfig),

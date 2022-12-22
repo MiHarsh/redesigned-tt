@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const smtp = require("../config/nodemailer-config").getSMTP();
 
-router.post("/", (req, res) => {
+router.post("/", (req, res, next) => {
   // setup e-mail data with unicode symbols
   console.log(req.body);
 
@@ -22,10 +22,12 @@ router.post("/", (req, res) => {
   };
 
   // send mail with defined transport object
-  smtp.sendMail(mailOptions, function (error, response) {
-    if (error) {
-      console.log(error);
-      res.end("error");
+  smtp.sendMail(mailOptions, function (err, response) {
+    if (err) {
+      if (!err.statusCode) {
+        err.statusCode = 500;
+      }
+      next(err);
     } else {
       console.log("Email sent ");
       res.end("Email Sent successfully");
