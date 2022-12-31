@@ -26,25 +26,13 @@ app.use(isAuth);
 
 // use routes
 app.use("/api/status", require("./routes/status"));
-app.use("/api/requestMail", require("./routes/requestviamail"));
-app.use("/api/getFacultyTT", require("./routes/faculty"));
-app.use("/api/bookSlot", require("./routes/bookSlots"));
-app.use("/api/cancelledSlot", require("./routes/cancelledSlots"));
-app.use("/api/getFacultyCD", require("./routes/getFacultyCD"));
-app.use(
-  "/api/getCourseStudentsTimeTable",
-  require("./routes/getCourseStudentsTimeTable")
-);
-app.use(
-  "/api/generateStudentAllotedCourses",
-  require("./routes/generateStudentAllotedCourses")
-);
+app.use("/api/requestMail", require("./routes/mail"));
+app.use("/api", require("./routes/faculty"));
+
 
 //error handler
 
 app.use((error, req, res, next) => {
-  console.log("from errohandler");
-  console.log(error);
   const status = error.statusCode || 500;
   const message = error.message;
   const data = error.data;
@@ -52,16 +40,16 @@ app.use((error, req, res, next) => {
 });
 
 // serve static assets if we are in production
-if (process.env.NODE_ENV === "production") {
-  // set static folder
-  app.use(express.static("client/build"));
+// if (process.env.NODE_ENV === "production") {
+//   // set static folder
+//   app.use(express.static("client/build"));
 
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
-  });
-} else {
-  app.use(express.static("public"));
-}
+//   app.get("*", (req, res) => {
+//     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+//   });
+// } else {
+//   app.use(express.static("public"));
+// }
 
 const port = process.env.BACKEND_NODE_PORT || 5000;
 

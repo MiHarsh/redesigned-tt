@@ -389,7 +389,7 @@ class WeekView extends Component {
       axios
         .post("http://localhost:5000/api/cancelledSlot", detail, {
           headers: {
-            Authorization: `Bearer ${sessionStorage.getItem("accessToken")}`,
+            Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
           },
         })
         .then((res) => {
@@ -520,7 +520,7 @@ class WeekView extends Component {
     return axios
       .get("/api/status", {
         headers: {
-          Authorization: `Bearer ${sessionStorage.getItem("accessToken")}`,
+          Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
         },
       })
       .then((resp) => {

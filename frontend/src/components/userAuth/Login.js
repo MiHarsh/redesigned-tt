@@ -25,7 +25,7 @@ export default function Login() {
       if (user) {
         user.getIdToken().then((tkn) => {
           // set access token in session storage
-          sessionStorage.setItem("accessToken", tkn);
+          localStorage.setItem("accessToken", tkn);
           history.push("/");
         });
       }
@@ -51,7 +51,7 @@ export default function Login() {
       if (user) {
         user.getIdToken().then((tkn) => {
           // set access token in session storage
-          sessionStorage.setItem("accessToken", tkn);
+          localStorage.setItem("accessToken", tkn);
           history.push("/");
         });
       }

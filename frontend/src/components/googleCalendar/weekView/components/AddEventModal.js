@@ -33,7 +33,7 @@ class AddEventModal extends Component {
     axios
       .post("http://localhost:5000/api/bookSlot", detail, {
         headers: {
-          Authorization: `Bearer ${sessionStorage.getItem("accessToken")}`,
+          Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
         },
       })
       .then((res) => {

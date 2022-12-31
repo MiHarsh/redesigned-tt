@@ -30,7 +30,7 @@ export default function Register() {
       if (user) {
         user.getIdToken().then((tkn) => {
           // set access token in session storage
-          sessionStorage.setItem("accessToken", tkn);
+          localStorage.setItem("accessToken", tkn);
           history.push("/");
         });
       }

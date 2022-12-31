@@ -14,7 +14,7 @@ export default function NavigationBar() {
 
     try {
       await logout();
-      await sessionStorage.clear();
+      await localStorage.clear();
       history.push("/login");
     } catch {
       setError("Failed to log out");
